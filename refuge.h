@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 // Enumeration species
 typedef enum {
@@ -21,3 +23,8 @@ typedef struct {
   int weight;
   char* description;
 } Animal;
+
+//Prototypes
+Date constructeur();
+Animal constructeur();
+void day_clean(Animal* tab, int size);
