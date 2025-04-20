@@ -1,4 +1,4 @@
-#include "projet.c"
+#include "refuge.h"
 
 //weekly time to clean shelters
 void day_clean(Animal* tab, int size){
