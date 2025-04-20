@@ -1,7 +1,7 @@
 #include "projet.c"
 
 //weekly time to clean shelters
-int day_clean(Animal* tab, int size){
+void day_clean(Animal* tab, int size){
   // Locals
   int clean_time=0;
   int h=-1;
