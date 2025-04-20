@@ -54,9 +54,18 @@ Animal constructeur(){
 	Animal a;
 	FILE* f1=NULL;
 	f1=fopen("listeNum.txt", "a+");
+	if (f1 == NULL){
+		printf("Ouverture du fichier impossible\n");
+		exit(1);
+	}
 
 	FILE* f2=NULL;
 	f2=fopen(a.identification_number, "w");
+	if (f2 == NULL){
+		printf("Ouverture du fichier impossible\n");
+		exit(1);
+	}
+	
 }
 
 
