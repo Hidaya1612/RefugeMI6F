@@ -1,0 +1,39 @@
+Max DOG 21.04.2015 28.3 Chien tres joueur 
+Charlie DOG 13.07.2017 25.9 Court plus vite que l'eclair
+Mars CAT 21.07.2009 3.21 
+Lily HAMSTER 23.11.2023 0.11 Petit mais tres courageux
+Oscar OSTRICH 18.07.1986 152 Adore l'eau, incroyable
+Nestor HAMSTER 26.06.2022 0.023
+Jack DOG 12.02.2021 30.2 
+Stella OSTRICH 04.11.1997 168 Trop curieux pour son bien
+Noisette HAMSTER 14.08.2022 0.032 Ronge tout sauf ses jouets
+Olive OSTRICH 23.09.2002 146
+Rocky DOG 17.09.2024 22.73 Sauter est son super-pouvoir
+Billy HAMSTER 12.12.2021 0.025 Toujours en quete d'aventure 
+Olga HAMSTER 15.02.2021 0.12
+Boomer DOG 31.07.2018 38.0 Grand fan de siestes longues
+Rouky CAT 16.03.2010 3.89 Ronronne des qu'on le regarde	
+Lola OSTRICH 30.04.1973 171
+Sunny CAT 29.03.2013 4.22 Dort comme un vrai roi
+Rose HAMSTER 30.10.2023 0.041 Regard trop craquant
+Hector OSTRICH 14.09.1988 153
+Prince DOG 06.12.2022 36.44
+Sacha CAT 03.11.2014 5.04
+Mimi HAMSTER 09.11.2023 0.034 
+Cannelle CAT 13.11.2016 4.95 Grimpe au rideau pour jouer
+Zara 0STRICH 10.01.2008 139 Tellement doux et affectueux 
+Potter DOG 03.11.2019 39.12
+Bella HAMSTER 12.12.2024 0.032
+Neige HAMSTER 21.03.2022 0.024
+Ruby DOG 06.10.2017 41.27 Tres sociable avec les autres
+Coco HAMSTER 01.03.2021 0.12 
+Caramel CAT 19.09.2020 2.97 Maitre des cachettes secrettes 
+Rosa DOG 01.02.2015 23.4
+Pearl CAT 10.11.2013 3.12 
+Cookie DOG 08.08.2023 36.0 Defend sa balle comme un pro
+Vanille HAMSTER 26.03.2022 0.029
+Snoopy DOG 12.03.2019 21.9
+Lucky CAT 15.04.2019 2.7 Attention voleur de croquette 
+Flocon HAMSTER 11.10.2021 0.109 
+Milou DOG 20.06.2017 32.1
+Chanel CAT 28.01.2016 3.8 Trop mignon avec ses moustaches
