@@ -45,7 +45,9 @@ Animal constructeur(){
 	
 }
 
-
+void afficherMenu(){
+	
+}
 
 
 
