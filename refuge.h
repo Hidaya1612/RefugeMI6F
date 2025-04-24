@@ -20,7 +20,7 @@ typedef struct {
   char* name;
   Species species;
   Date date_of_birth;
-  int weight;
+  float weight;
   char* description;
 } Animal;
 
