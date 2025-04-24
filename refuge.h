@@ -28,3 +28,4 @@ typedef struct {
 Date constructeur();
 Animal constructeur();
 void day_clean(Animal* tab, int size);
+void afficherMenu();
