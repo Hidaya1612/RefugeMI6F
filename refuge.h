@@ -26,6 +26,6 @@ typedef struct {
 
 //Prototypes
 Date constructeur();
-Animal constructeur();
+Animal constructeurAnimal();
 void day_clean(Animal* tab, int size);
 void afficherMenu();
