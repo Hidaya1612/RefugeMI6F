@@ -27,7 +27,7 @@ Date constructeur(){
 	
 }
 
-Animal constructeur(){
+Animal constructeurAnimal(){
 	Animal a;
 	FILE* f1=NULL;
 	f1=fopen("listeNum.txt", "a+");
