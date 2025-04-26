@@ -8,7 +8,7 @@ void day_clean(Animal* tab, int taille, nb_animaux){
   int m=-1;
 
   //Check parameters
-  if (tab == NULL ||  taille<=0 || nb_animaux<0){
+  if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>taille){
     printf("allocation échoué ou taille/nombre animaux incohérente\n");
     exit(1);
   }
