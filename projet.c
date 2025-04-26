@@ -5,9 +5,10 @@ int main(){
   Animal* tab=NULL;
   FILE* f1=NULL;
   FILE* f2=NULL;
+  int nb_animaux;
 
-  tab=malloc(TAILLE*sizeof(Animal));
-  if (tab==NULL){
+  tab_animaux=malloc(TAILLE*sizeof(Animal));
+  if (tab_animaux==NULL){
     printf("Allocation échouée\n");
     exit(1);
   }
@@ -18,6 +19,8 @@ int main(){
     printf("Ouverture des fichiers impossible\n");
     exit(1);
   }
+  nb_animaux=compter_animaux(f2);
+  stockage_animaux(f1, f2, tab_animaux, TAILLE, nb_animaux);
 
   
   afficherMenu();
