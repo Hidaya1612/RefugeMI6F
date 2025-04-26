@@ -21,14 +21,12 @@ void day_clean(Animal* tab, int taille, nb_animaux){
     else if (tab[i].species==3){
       clean_time+=185;
     }
-    else if (tab[i].species==1){
+    else if (tab[i].species==0){
       clean_time+=55;
     }
-    else{
-      clean_time+=14;
-    }
   }
-
+  clean_time+=(taille-nb_animaux)*14;
+  
   //Check clean_time value
   if (clean_time%60==0){
     h=clean_time/60;
