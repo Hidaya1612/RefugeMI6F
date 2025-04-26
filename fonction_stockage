@@ -18,6 +18,7 @@ int compter_animaux(FILE* fichier){
   return nb_animaux;
 }
 
+//Stockage des données animaux dans un tableau
 void stockage_animaux(FILE* f1, FILE* f2, Animal* tab, taille, nb_animaux){
   if (f1==NULL || f2==NULL || tab==NULL || nb_animaux<0 || nb_animaux>taille){
     printf("Erreur\n");
