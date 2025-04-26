@@ -9,18 +9,18 @@ int compter_animaux(FILE* fichier){
   int caractereActuel = EOF+1;
   int nb_animaux=0;
   while( caractereActuel != EOF){
-    caractereActuel=fgetc(f2);
+    caractereActuel=fgetc(fichier);
     if (caractereActuel==59){
       nb_animaux++;
     }
   }
-  rewind(f2);
+  rewind(fichier);
   return nb_animaux;
 }
 
 //Stockage des données animaux dans un tableau
 void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, taille, nb_animaux){
-  if (f1==NULL || f2==NULL || tab==NULL || nb_animaux<0 || nb_animaux>taille){
+  if (fichier1==NULL || fichier2==NULL || tab==NULL || taille<0 || nb_animaux<0 || nb_animaux>taille){
     printf("Erreur\n");
     exit(1);
   }
@@ -29,11 +29,11 @@ void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, taille, nb_an
     int tmp=-1;
     
     for (int i=0;i<nb_animaux;i++){
-      if(fscanf(f1,"%d",&tab[i].identification_number)!=1 || tab[i].identification_number<12343712 || tab[i].identification_number>12343761){
+      if(fscanf(fichier1,"%d",&tab[i].identification_number)!=1 || tab[i].identification_number<12343712 || tab[i].identification_number>12343761){
         printf("Mauvaise valeur de numero identification dans le fichier\n");
         exit(1);
       }
-      while(fgetc(f2)!=32){
+      while(fgetc(fichier2)!=32){
         compteur++;
       }        
       tab[i].name=NULL;
@@ -42,14 +42,14 @@ void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, taille, nb_an
         printf("Allocation échouée\n");
         exit(1);
       }
-      fseek(f2,-(compteur+1),SEEK_CUR);
+      fseek(fichier2,-(compteur+1),SEEK_CUR);
       compteur=0;
-      if(fscanf(f2,"%s %d %d %f ",tab[i].name,&tmp,&tab[i].year_of_birth,&tab[i].weight)!=4 || tmp<0 || tmp>3 || tab[i].year_of_birth<1980 || tab[i].year_of_birth>2025 || tab[i].weight<0 || tab[i].weight>150){
+      if(fscanf(fichier2,"%s %d %d %f ",tab[i].name,&tmp,&tab[i].year_of_birth,&tab[i].weight)!=4 || tmp<0 || tmp>3 || tab[i].year_of_birth<1980 || tab[i].year_of_birth>2025 || tab[i].weight<0 || tab[i].weight>150){
         printf("Mauvaise valeur sur une info animal dans le fichier");
         exit(1);
       }
       tab[i].species=tmp;
-      while(fgetc(f2)!=59){
+      while(fgetc(fichier2)!=59){
         compteur++;
       }
       tab[i].description=NULL;
@@ -58,11 +58,12 @@ void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, taille, nb_an
         printf("Allocation échouée\n");
         exit(1);
       }
-      fseek(f2,-(compteur+1),SEEK_CUR);
-      fgets(tab[i].description,compteur+1,f2);
+      fseek(fichier2,-(compteur+1),SEEK_CUR);
+      fgets(tab[i].description,compteur+1,fichier2);
       compteur=0;
-      fseek(f2,1,SEEK_CUR);
+      fseek(fichier2,1,SEEK_CUR);
     }
   }
+  rewind(fichier2);
 }
     
