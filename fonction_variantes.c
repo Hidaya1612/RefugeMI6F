@@ -1,20 +1,20 @@
 #include "refuge.h"
 
 //weekly time to clean shelters
-void day_clean(Animal* tab, int size){
+void day_clean(Animal* tab, int taille, nb_animaux){
   // Locals
   int clean_time=0;
   int h=-1;
   int m=-1;
 
   //Check parameters
-  if (tab == NULL ||  size<=0){
-    printf("allocation échoué ou taille incohérente\n");
+  if (tab == NULL ||  taille<=0 || nb_animaux<0){
+    printf("allocation échoué ou taille/nombre animaux incohérente\n");
     exit(1);
   }
 
   //Process
-  for (int i=0; i<size; i++){
+  for (int i=0; i<nb_animaux; i++){
     if (tab[i].species==1 || tab[i].species==2){
       clean_time+=90;
     }
