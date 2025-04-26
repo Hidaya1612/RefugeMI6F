@@ -1,25 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#define TAILLE 50
 
 // Enumeration species
 typedef enum {
   DOG, CAT, HAMSTER, OSTRICH
 } Species;
 
-// Structure date
-typedef struct {
-  int day;
-  int month;
-  int year;
-} Date;
-
 // Structure animal
 typedef struct {
   int identification_number;
   char* name;
   Species species;
-  Date date_of_birth;
+  int year_of_birth;
   float weight;
   char* description;
 } Animal;
