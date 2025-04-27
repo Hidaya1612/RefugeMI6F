@@ -2,7 +2,7 @@
 
 int main(){
   
-  Animal* tab=NULL;
+  Animal* tab_animaux=NULL;
   FILE* f1=NULL;
   FILE* f2=NULL;
   int nb_animaux;
