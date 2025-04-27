@@ -1,7 +1,7 @@
 #include "refuge.h"
 
 //weekly time to clean shelters
-void day_clean(Animal* tab, int taille, nb_animaux){
+void day_clean(Animal* tab, int taille, int nb_animaux){
   // Locals
   int clean_time=0;
   int h=-1;
