@@ -27,6 +27,27 @@ Date constructeur(){
 	
 }
 
+void  corrigeNom(Animal a){
+    // Vérification si le nom est vide
+    if (a.name == NULL || a.name[0] == '\0') {
+        return;
+    }
+
+    // Correction de la première lettre
+    if (a.name[0] >= 'a' && a.name[0] <= 'z') { // La première est minuscule
+        a.name[0] -= 32;
+    }
+
+    // Les autres lettres
+    int i = 1;
+    while (a.name[i] != '\0') {
+        if (a.name[i] >= 'A' && a.name[i] <= 'Z') { // Si majuscule
+            a.name[i] += 32; // Convertir en minuscule
+        }
+        i++;
+    }
+}
+
 Animal constructeurAnimal(FILE* f1, FILE* f2){
     Animal a;
 
