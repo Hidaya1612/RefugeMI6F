@@ -27,22 +27,58 @@ Date constructeur(){
 	
 }
 
-Animal constructeurAnimal(){
-	Animal a;
-	FILE* f1=NULL;
-	f1=fopen("listeNum.txt", "a+");
-	if (f1 == NULL){
-		printf("Ouverture du fichier impossible\n");
-		exit(1);
-	}
+Animal constructeurAnimal(FILE* f1, FILE* f2){
+    Animal a;
 
-	FILE* f2=NULL;
-	f2=fopen(a.identification_number, "w");
-	if (f2 == NULL){
-		printf("Ouverture du fichier impossible\n");
-		exit(1);
-	}
-	
+    //Gestion des fichiers
+    if (f1 == NULL || f2 == NULL){
+        printf("Ouverture du fichier impossible\n");
+        exit(1);
+    }
+
+    // Initialisation des champs
+    a.name = malloc(50 * sizeof(char));;
+    a.description = malloc(50 * sizeof(char));
+    if (a.name==NULL || a.description==NULL) {
+        printf("Erreur d'allocation mémoire\n");
+        exit(1);
+    }
+
+    // Saisie des informations de l'animal
+    printf("Veuillez saisir le numéro d'identification de l'animal\n");
+    scanf("%d",&a.identification_number);
+    if (a.identification_number<1 || a.identification_number>99999999 ) {
+        printf("Erreur dans la saisie du numéro d'identification ! \n");
+        exit(1);
+    }
+
+    printf("Veuillez saisir le nom de l'animal : \n");
+    scanf("%s",a.name);
+    corrigeNom(a);
+
+    printf("Veuillez saisir l'espece de l'animal : \n");
+    scanf("%d",&a.species);
+
+    printf("Veuillez saisir le poid de l'animal: \n");
+    scanf("%f", &a.weight);
+    if (a.weight < 0 || a.weight > 150) {
+        printf("Erreur dans la saisie du poids ! \n");
+    }
+
+    printf("Veuillez saisir l'année de naissance de l'animal: \n");
+    scanf("%d", a.year_of_birth);
+
+    printf("Veuillez saisir une description sur l'animal (facultatif) : \n");
+        while (getchar() != '\n');
+        fgets(a.description, 50, stdin);
+
+    fprintf(f1, "%d\n", a.identification_number);
+
+    char filename[20];
+    sprintf(filename, "%d.txt", a.identification_number);
+
+    fprintf(f2, "%s %d %d %f %s ;\n", a.name, a.species, a.year_of_birth, a.weight, a.description);
+    return a;
 }
 
 void afficherMenu(){
