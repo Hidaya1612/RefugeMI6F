@@ -10,7 +10,7 @@ int compter_animaux(FILE* fichier){
   int nb_animaux=0;
   while( caractereActuel != EOF){
     caractereActuel=fgetc(fichier);
-    if (caractereActuel==59){
+    if (caractereActuel==';'){
       nb_animaux++;
     }
   }
@@ -33,7 +33,7 @@ void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, int taille, i
         printf("Mauvaise valeur de numero identification dans le fichier\n");
         exit(1);
       }
-      while(fgetc(fichier2)!=32){
+      while(fgetc(fichier2)!=' '){
         compteur++;
       }        
       tab[i].name=NULL;
@@ -49,7 +49,7 @@ void stockage_animaux(FILE* fichier1, FILE* fichier2, Animal* tab, int taille, i
         exit(1);
       }
       tab[i].species=tmp;
-      while(fgetc(fichier2)!=59){
+      while(fgetc(fichier2)!=';'){
         compteur++;
       }
       tab[i].description=NULL;
