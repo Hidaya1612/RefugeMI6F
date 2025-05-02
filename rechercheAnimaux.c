@@ -1,3 +1,22 @@
+#define MAX_ANIMAUX=50
+
+Animal trouverAnimaux(Animal tab[]){
+	int nb_animaux=0;
+	
+	FILE* fichier=fopen(liste_animaux.txt, "r");
+	if(fichier==NULL){
+		exit(1);
+	}
+	while(nb_animaux<MAX_ANIMAUX){
+		fscanf
+		fgets
+	}
+	
+	
+}
+
+
+
 Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) {
     int found = 0;
     int count=0;
@@ -97,18 +116,12 @@ void afficheAnimaux(Animal animal[], int nb_animaux) {
 }
 
 
-void creationTableau(){
-
-}
-
-Animal* rechercherAnimaux(Animal* a, int* nb_animaux) {
-    if (a == NULL || nb_animaux <= 0) {
-        a=malloc(MAX_ANIMALS*sizeof(Animal));
-        for (int i = 0; i < *nb_animaux; i++) {
-
-        }
-    }
-
+Animal* rechercherAnimaux(Animal tab[], int* nb_animaux) {
+	tab[50];
+	for(int i=0;i<50;i++){
+		tab[i]=
+	}
+	trouverAnimaux(tab);
 
     int test = 0;
     int ageType=0;
@@ -163,3 +176,4 @@ Animal* rechercherAnimaux(Animal* a, int* nb_animaux) {
         rechercherAnimaux(a, *nb_animaux);
     }
 }
+
