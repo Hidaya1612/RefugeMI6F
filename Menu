@@ -2,38 +2,40 @@ void afficherMenu(){
     int choix;
     do{
         printf("\n*******MENU PRINCIPAL*******\n");
-        printf("1. Rechercher un/des animaux\n");
+        printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
         printf("3. Adopter un animal\n");
-        printf("4. Inventaire du refuge (INV_AGE_ASC)\n");
-        printf("5. Gestion du nettoyage hebdomadaire (DAY_CLEAN)\n");
+        printf("4. Inventaire du refuge\n");
+        printf("5. Gestion du nettoyage hebdomadaire\n");
         printf("6. Quitter\n");
 
         printf("Votre choix : ");
-        scanf("%d", &choix);
+        if(scanf("%d", &choix)!=1 || choix < 0 || choix > 6){
+            printf("Erreur dans votre choix!\n);
+        }
+        while(scanf("%d", &choix)!=1 || choix < 0 || choix > 6){
+            printf("Ressaisir votre choix:\n");    
+        }
 
         switch (choix) {
             case 1:
-                //ajouterAnimal();
+                ajouterAnimal();
             break;
             case 2:
-                //rechercherAnimaux();
+                rechercherAnimaux();
             break;
             case 3:
-                //adopterAnimal();
+                adopterAnimal();
             break;
             case 4: {
                 inventaireRefuge();
                 break;
             }
             case 5:
-                //day_clean(refuge, nombre_animaux);
+                day_clean(refuge, nombre_animaux);
             break;
             case 6:
                 printf("Au revoir !\n");
             break;
-            default:
-                printf("❌ Choix invalide, veuillez réessayer.\n");
-        }
 } while (choix != 6);
 }
