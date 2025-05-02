@@ -1,6 +1,6 @@
 void afficherMenu(){
     int choix;
-    do{
+
         printf("\n*******MENU PRINCIPAL*******\n");
         printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
@@ -37,5 +37,5 @@ void afficherMenu(){
             case 6:
                 printf("Au revoir !\n");
             break;
-} while (choix != 6);
+
 }
