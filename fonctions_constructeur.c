@@ -1,5 +1,32 @@
 #include "refuge.h"
 
+/*Date constructeur(){
+    Date d;
+    int test=0;
+    d.day=0;
+    d.month=0;
+    d.year=0;
+    printf("saisir le jour");
+    do{
+        test=scanf("%d",&d.day);
+        while(getchar()!='\n'){};
+    }while(test<=0 || d.day<1 || d.day>31 );
+    test=0;
+    printf("saisir le mois");
+    do{
+        test=scanf("%d",&d.month);
+        while(getchar()!='\n'){};
+    }while(test<=0 || d.month<1 || d.month>12 );
+    test=0;
+    printf("saisir une année");
+    do{
+        test=scanf("%d",&d.day);
+        while(getchar()!='\n'){};
+    }while(test<=0 || d.year==0 );
+    return d;
+
+}*/
+
 void  corrigeNom(Animal a){
     // Vérification si le nom est vide
     if (a.name == NULL || a.name[0] == '\0') {
