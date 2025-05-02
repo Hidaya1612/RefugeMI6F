@@ -174,6 +174,7 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux) {
     printf("appuyez sur 1 si oui, 0 sinon");
     if (choix == 1) {
         rechercherAnimaux(a, *nb_animaux);
+	    afficheAnimaux(a, *nb_animaux);
     }
 }
 
