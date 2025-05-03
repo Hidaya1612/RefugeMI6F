@@ -21,7 +21,7 @@ typedef struct {
 
 //Prototypes
 //Date constructeur();
-Animal constructeurAnimal();
+Animal ajouter_Animal();
 void day_clean(Animal* tab, int size);
 void afficherMenu();
 Animal* rechercherAnimaux(Animal* a, int* nb_animaux);
