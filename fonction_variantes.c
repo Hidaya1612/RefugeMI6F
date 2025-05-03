@@ -15,14 +15,16 @@ void day_clean(Animal* tab, int taille, int nb_animaux){
 
   //Process
   for (int i=0; i<nb_animaux; i++){
-    if (tab[i].species==1 || tab[i].species==2){
-      clean_time+=90;
-    }
-    else if (tab[i].species==3){
-      clean_time+=185;
-    }
-    else if (tab[i].species==0){
-      clean_time+=55;
+    if (tab[i].identification_number!=0){
+      if (tab[i].species==1 || tab[i].species==2){
+        clean_time+=90;
+      }
+      else if (tab[i].species==3){
+        clean_time+=185;
+      }
+      else if (tab[i].species==0){
+        clean_time+=55;
+      }
     }
   }
   clean_time+=(taille-nb_animaux)*14;
