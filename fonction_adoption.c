@@ -1,15 +1,15 @@
 #include "refuge.h"
 
-void adoption_animal(Animal* tab, int taille, int nb_animaux){
+void adoption_animal(Animal* tab, int taille, int* nb_animaux){
     
     int id=-1;
     
-    if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>taille){
+    if (tab == NULL || nb_animaux == NULL ||  taille<=0 || *nb_animaux<0 || *nb_animaux>taille){
         printf("allocation échoué ou taille/nombre animaux incohérente\n");
         exit(1);
     }
     
-    if (nb_animaux==0){
+    if (*nb_animaux==0){
         printf("Il n'est plus possible d'adopter un animal dans ce refuge.\n");
     }
     else{
@@ -19,7 +19,7 @@ void adoption_animal(Animal* tab, int taille, int nb_animaux){
             exit(1);
         }
         int test=0;
-        for (int i=0;i<nb_animaux;i++){
+        for (int i=0;i<*nb_animaux;i++){
             if(tab[i].identification_number==id){
                 tab[i].identification_number=0;
                 test++;
@@ -29,39 +29,26 @@ void adoption_animal(Animal* tab, int taille, int nb_animaux){
             printf("Aucun animal dans ce refuge porte ce numéro d'identification.\n");
         }
         else{
-            int compteur=0;
             FILE* fichier=NULL;
             fichier=fopen("liste_animaux.txt","w+");
             if (fichier==NULL ){
                 printf("Ouverture du fichier impossible\n");
                 exit(1);
             }
-            for (int i=0;i<nb_animaux;i++){
+            for (int i=0;i<*nb_animaux;i++){
                 if (tab[i].identification_number!=0){
-                    compteur++;
-                    //printf("%d\n",compteur);
                     fprintf(fichier,"%d %s %d %d %f",tab[i].identification_number,tab[i].name,tab[i].species,tab[i].year_of_birth,tab[i].weight);
                     if (strlen(tab[i].description)!=0){
-                        if (compteur!=nb_animaux-1){
-                            fprintf(fichier," %s;\n",tab[i].description);
-                        }
-                        else{
-                            fprintf(fichier," %s;",tab[i].description);
-                        }
+                        fprintf(fichier," %s;\n",tab[i].description);
                     }
                     else{
-                        if (compteur!=nb_animaux-1){
-                            fprintf(fichier,";\n");
-                        }
-                        else{
-                            fprintf(fichier,";");
-                        }
+                        fprintf(fichier,";\n");
                     }
                 }
             }
             rewind(fichier);
             fclose(fichier);
-            nb_animaux=stockage_animaux(tab,TAILLE);
+            *nb_animaux=stockage_animaux(tab,TAILLE);
         }
     }
   
