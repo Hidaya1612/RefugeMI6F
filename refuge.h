@@ -22,6 +22,7 @@ typedef struct {
 //Prototypes
 //Date constructeur();
 int stockage_animaux(Animal* tab, int taille);
+void  corrigeNom(Animal a)
 Animal ajouter_Animal();
 void adoption_animal(Animal* tab, int taille, int* nb_animaux);
 void day_clean(Animal* tab, int size);
