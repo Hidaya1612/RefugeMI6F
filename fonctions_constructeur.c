@@ -48,8 +48,7 @@ Animal ajouter_Animal(FILE* f1){
 
     // Saisie des informations de l'animal
     printf("Veuillez saisir le numéro d'identification de l'animal\n");
-    scanf("%d",&a.identification_number);
-    if (a.identification_number<1 || a.identification_number>39 ) {
+    if(scanf("%d",&a.identification_number)!=1 || a.identification_number<1 || a.identification_number>39 ){
         printf("Erreur dans la saisie du numéro d'identification ! \n");
         exit(1);
     }
