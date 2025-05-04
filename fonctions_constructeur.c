@@ -85,9 +85,6 @@ Animal ajouter_Animal(FILE* f1, FILE* f2){
     return a;
 }
 
-void afficherMenu(){
-	
-}
 
 
 
