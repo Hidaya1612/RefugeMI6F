@@ -107,8 +107,10 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux) {
     if (nb_animaux==NULL || *nb_animaux<=0) {
         exit(0);
     }
-	stockage_animaux(tab,*nb_animaux);
-
+    if (tab == NULL) {
+        *nb_animaux=stockage_animaux(tab,*nb_animaux);
+    }
+    
    	int test = 0;
 	int ageType=0;
     char name[100];
@@ -173,5 +175,3 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux) {
     }
     return NULL;
 }
-
-
