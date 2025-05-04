@@ -1,32 +1,5 @@
 #include "refuge.h"
 
-/*Date constructeur(){
-    Date d;
-    int test=0;
-    d.day=0;
-    d.month=0;
-    d.year=0;
-    printf("saisir le jour");
-    do{
-        test=scanf("%d",&d.day);
-        while(getchar()!='\n'){};
-    }while(test<=0 || d.day<1 || d.day>31 );
-    test=0;
-    printf("saisir le mois");
-    do{
-        test=scanf("%d",&d.month);
-        while(getchar()!='\n'){};
-    }while(test<=0 || d.month<1 || d.month>12 );
-    test=0;
-    printf("saisir une année");
-    do{
-        test=scanf("%d",&d.day);
-        while(getchar()!='\n'){};
-    }while(test<=0 || d.year==0 );
-    return d;
-
-}*/
-
 void  corrigeNom(Animal a){
     // Vérification si le nom est vide
     if (a.name == NULL || a.name[0] == '\0') {
@@ -48,7 +21,7 @@ void  corrigeNom(Animal a){
     }
 }
 
-Animal ajouter_Animal(FILE* f1, FILE* f2){
+Animal constructeurAnimal(FILE* f1, FILE* f2){
     Animal a;
 
     //Gestion des fichiers
@@ -68,26 +41,35 @@ Animal ajouter_Animal(FILE* f1, FILE* f2){
     // Saisie des informations de l'animal
     printf("Veuillez saisir le numéro d'identification de l'animal\n");
     scanf("%d",&a.identification_number);
-    if (a.identification_number<1 || a.identification_number>99999999 ) {
+    if (a.identification_number<1 || a.identification_number>39 ) {
         printf("Erreur dans la saisie du numéro d'identification ! \n");
         exit(1);
     }
 
     printf("Veuillez saisir le nom de l'animal : \n");
-    scanf("%s",a.name);
+    if(scanf("%s",a.name)!=1){
+        printf("Erreur dans la saisie du nom!n");
+        exit(1);
+    }
     corrigeNom(a);
 
-    printf("Veuillez saisir l'espece de l'animal : \n");
-    scanf("%d",&a.species);
+    printf("Veuillez saisir l'espece de l'animal : 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
+    if (scanf("%d",&a.species)!= 1 || a.species < 0 || a.species > 3) {
+        printf("Erreur de la saisie de l'espece! \n");
+        exit(1);
+    }
 
     printf("Veuillez saisir le poid de l'animal: \n");
-    scanf("%f", &a.weight);
-    if (a.weight < 0 || a.weight > 150) {
+    if (scanf("%f", &a.weight || a.weight < 0 || a.weight > 150) {
         printf("Erreur dans la saisie du poids ! \n");
+        exit(1);
     }
 
     printf("Veuillez saisir l'année de naissance de l'animal: \n");
-    scanf("%d", a.year_of_birth);
+    if (scanf("%d", a.year_of_birth)!= 1 || a.year_of_birth<1980 || a.year_of_birth>2025) {
+        printf("Erreur dans la saisie de l'année de naissance de l'animal!\n");
+        exit(1);
+    }
 
     printf("Veuillez saisir une description sur l'animal (facultatif) : \n");
         while (getchar() != '\n');
