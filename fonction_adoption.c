@@ -41,7 +41,7 @@ void adoption_animal(Animal* tab, int taille, int nb_animaux){
                     compteur++;
                     fprintf(fichier,"%d %s %d %d %f",tab[i].identification_number,tab[i].name,tab[i].species,tab[i].year_of_birth,tab[i].weight);
                     if (strlen(tab[i].description)!=0){
-                        printf("%d\n",compteur);
+                        //printf("%d\n",compteur);
                         if (compteur!=nb_animaux-1){
                             fprintf(fichier," %s;\n",tab[i].description);
                         }
