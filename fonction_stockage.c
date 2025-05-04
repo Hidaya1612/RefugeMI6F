@@ -23,6 +23,13 @@ int stockage_animaux(Animal* tab, int taille){
     int i=0;
     
     while (caractereActuel != EOF){
+
+        fseek(fichier,2,SEEK_CUR);
+        caractereActuel=fgetc(fichier);
+        fseek(fichier,-3,SEEK_CUR);
+        if(caractereActuel==EOF){
+            break;
+        }
             
         if(fscanf(fichier,"%d ",&tab[i].identification_number)!=1 || tab[i].identification_number<0){
             printf("Mauvaise valeur de numero identification dans le fichier\n");
@@ -63,12 +70,9 @@ int stockage_animaux(Animal* tab, int taille){
         //printf("%s\n",tab[i].description);
         compteur=0;
         
-        fseek(fichier,3,SEEK_CUR);
+        fseek(fichier,1,SEEK_CUR);
         nb_animaux++;
         i++;
-        
-        caractereActuel=fgetc(fichier);
-        fseek(fichier,-3,SEEK_CUR);
         
     }
     
