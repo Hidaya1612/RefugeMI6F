@@ -69,11 +69,14 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
 }
 
 
-void inv_age_asc(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
-    if (tab == NULL || nb_animaux <= 0 || pMin == NULL || pMax == NULL) {
+void inv_age_asc(Animal* tab, int nb_animaux) {
+    if (tab == NULL || nb_animaux <= 0) {
         printf("Erreur.\n");
         exit(2);
     }
+    int* pMin=NULL;
+    int* pMax=NULL;
+    extremums(tab, nb_animaux, pMin, pMax);
     int range = (*pMax - *pMin) / 4;
     int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
 
