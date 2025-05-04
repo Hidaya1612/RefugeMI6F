@@ -5,7 +5,7 @@ void afficherMenu(){
         printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
         printf("3. Adopter un animal\n");
-        printf("4. Inventaire du refuge\n");
+        printf("4. Inventaire du refuge (par âge)\n");
         printf("5. Gestion du nettoyage hebdomadaire\n");
         printf("6. Quitter\n");
 
