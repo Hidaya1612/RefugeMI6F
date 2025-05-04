@@ -16,7 +16,7 @@ int stockage_animaux(Animal* tab, int taille){
     }
     
     
-    int caractereActuel = EOF+1;
+    int caractereActuel = 0;
     int nb_animaux=0;
     int compteur=0;
     int tmp=-1;
@@ -63,12 +63,12 @@ int stockage_animaux(Animal* tab, int taille){
         //printf("%s\n",tab[i].description);
         compteur=0;
         
-        fseek(fichier,1,SEEK_CUR);
+        fseek(fichier,3,SEEK_CUR);
         nb_animaux++;
         i++;
         
         caractereActuel=fgetc(fichier);
-        fseek(fichier,-1,SEEK_CUR);
+        fseek(fichier,-3,SEEK_CUR);
         
     }
     
