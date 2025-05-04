@@ -1,35 +1,18 @@
 
 #include"refuge.h"
 
-/*Animal trouverAnimaux(Animal tab[]){
-	int nb_animaux=0;
-	int fin=0;
-	int i=0;
-	FILE* fichier=fopen("liste_animaux.txt", "r");
-	if(fichier==NULL){
-		exit(1);
-	}
-	while(fin!=EOF){
-		fscanf
-		fgets
-		i++;
-	}
-	
-	
-}*/
-
-
-
 Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) {
-    int found = 0;
+    if (nomRecherche==NULL || nb_animaux==NULL || *nb_animaux<=0) {
+        return NULL;
+    }
+
     int count=0;
     for (int i = 0; i<*nb_animaux; i++) {
         if (strcmp(animaux[i].name, nomRecherche) == 0) {
-            found = 1;
             count++;
         }
     }
-    if (found!=1) {
+    if (count==0) {
         return NULL;
     }
 
@@ -44,12 +27,16 @@ Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) {
             j++;
         }
     }
-    *nb_animaux=count;
+    *nb_animaux = count;
     return tab1;
 }
 
 
 Animal* rechercheparEspece(Species s, Animal animaux[], int* nb_animaux) {
+    if (nb_animaux==NULL) {
+        exit(0);
+    }
+
     int found=0;
     int count=0;
     for (int i = 0; i < *nb_animaux; i++) {
@@ -66,7 +53,7 @@ Animal* rechercheparEspece(Species s, Animal animaux[], int* nb_animaux) {
         exit(1);
     }
     int j=0;
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < *nb_animaux; i++) {
         if (animaux[i].species == s) {
             tab2[j]=animaux[i];
             j++;
@@ -78,12 +65,12 @@ Animal* rechercheparEspece(Species s, Animal animaux[], int* nb_animaux) {
 }
 
 Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) {
+    if (nb_animaux==NULL) {
+        exit(0);
+    }
     int count = 0;
     for (int i = 0; i < *nb_animaux; i++) {
-        int age = 2025 - animaux[i].date_of_birth.year;
-        if (animaux[i].date_of_birth.month > 1 || (animaux[i].date_of_birth.month == 1 && animaux[i].date_of_birth.day > 1)) {
-            age--;
-           }
+        int age = 2025 - animaux[i].year_of_birth;
         if ((ageType == 1 && age < 2) || (ageType == 2 && age > 10)) {
             count++;
         }
@@ -99,10 +86,7 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) {
 
     int j = 0;
     for (int i = 0; i < *nb_animaux; i++) {
-        int age = 2025 - animaux[i].date_of_birth.year;
-        if (animaux[i].date_of_birth.month > 1 || (animaux[i].date_of_birth.month == 1 && animaux[i].date_of_birth.day > 1)) {
-            age--;
-           }
+        int age = 2025 - animaux[i].year_of_birth;
         if ((ageType == 1 && age < 2) || (ageType == 2 && age > 10)) {
             tab3[j] = animaux[i];
             j++;
@@ -114,18 +98,20 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) {
 
 void afficheAnimaux(Animal animal[], int nb_animaux) {
     for (int i = 0; i < nb_animaux; i++) {
-        printf("Name: %s, ID: %d, Specie: %d, Birth Year: %d, Weight: %d, Description: %s\n", animal[i].name, animal[i].identification_number, animal[i].species, animal[i].date_of_birth.year, animal[i].weight, animal[i].description);
+        printf("Name: %s, ID: %d, Specie: %d, Birth Year: %d, Weight: %d, Description: %s\n", animal[i].name, animal[i].identification_number, animal[i].species, animal[i].year_of_birth, animal[i].weight, animal[i].description);
     }
 }
 
 
-Animal* rechercherAnimaux(Animal tab[], int* nb_animaux, FILE* f1, FILE* f2) {
-	tab[TAILLE];
-	stockage_animaux(f1,f2,tab,50,*nb_animaux);
+Animal* rechercherAnimaux(Animal tab[], int* nb_animaux) {
+    if (nb_animaux==NULL || *nb_animaux<=0) {
+        exit(0);
+    }
+	stockage_animaux(tab,*nb_animaux);
 
    	int test = 0;
 	int ageType=0;
-        char name[100];
+    char name[100];
         int species=0;
     	int choix=0;
 
@@ -140,13 +126,15 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux, FILE* f1, FILE* f2) {
 
         switch (choix) {
             case 1:
+
                 printf("Entrez le nom : ");
                 do {
-                    test = scanf("%s", &name);
+                    test = scanf("%s", name);
                     while (getchar() != '\n') {};
                 } while (test <= 0);
-                rechercheparNom(name,a, *nb_animaux);
-                afficheAnimaux(a, *nb_animaux);
+                Animal* res=rechercheparNom(name,tab, *nb_animaux);
+                afficheAnimaux(res, *nb_animaux);
+            free(res);
             break;
             case 2:
                 printf("Entrez l'espèce (0: DOG, 1: CAT, 2: HAMSTER, 3: OSTRICH) : ");
@@ -154,8 +142,9 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux, FILE* f1, FILE* f2) {
                     test = scanf("%d", &species);
                     while (getchar() != '\n') {};
                 } while (test <= 0 || species < 0 || species > 3);
-                rechercheparEspece(species,a, *nb_animaux);
-                afficheAnimaux(a, *nb_animaux);
+                Animal* res2=rechercheparEspece(species,tab, *nb_animaux);
+                afficheAnimaux(res2, *nb_animaux);
+                free(res2);
                 break;
             case 3:
                 printf("Entrez le type d'âge (1: Jeune <2 ans, 2: Senior >10 ans) : ");
@@ -163,22 +152,26 @@ Animal* rechercherAnimaux(Animal tab[], int* nb_animaux, FILE* f1, FILE* f2) {
                     test = scanf("%d", &ageType);
                     while (getchar() != '\n') {};
                 } while (test <= 0 || (ageType != 1 && ageType != 2));
-                rechercheparAge(ageType, a, *nb_animaux);
-                afficheAnimaux(a, *nb_animaux);
+                Animal* res3=rechercheparAge(ageType, tab, *nb_animaux);
+                afficheAnimaux(res3, *nb_animaux);
+            free(res3);
                 break;
 
             default:
                 printf("Choix invalide.\n");
         }
+    int continuer=0;
    	 printf("voulez vous rechercher a partir d'un autre critere");
-    	printf("appuyez sur 1 si oui, 0 sinon");
-   	 if (choix == 1) {
-        rechercherAnimaux(a, *nb_animaux);
-    }
-}
+     printf("appuyez sur 1 si oui, 0 sinon");
+    do {
+        test = scanf("%d", &continuer);
+        while (getchar() != '\n') {};
+    } while (test <= 0 || continuer != 1 && continuer !=0);
 
-int main(){
-	rechercherAnimaux();
+   	 if (continuer == 1) {
+        rechercherAnimaux(tab, nb_animaux);
+    }
+    return NULL;
 }
 
 
