@@ -3,7 +3,8 @@
 void  corrigeNom(Animal a){
     // Vérification si le nom est vide
     if (a.name == NULL || a.name[0] == '\0') {
-        return;
+        printf("Erreur sur le prénom!\n");
+	exit(1);
     }
 
     // Correction de la première lettre
