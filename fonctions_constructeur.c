@@ -60,7 +60,7 @@ Animal constructeurAnimal(FILE* f1, FILE* f2){
     }
 
     printf("Veuillez saisir le poid de l'animal: \n");
-    if (scanf("%f", &a.weight || a.weight < 0 || a.weight > 150) {
+    if (scanf("%f", &a.weight || a.weight < 0 || a.weight > 150)){
         printf("Erreur dans la saisie du poids ! \n");
         exit(1);
     }
