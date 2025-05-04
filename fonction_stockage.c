@@ -4,7 +4,7 @@
 int stockage_animaux(Animal* tab, int taille){
     
     FILE* fichier=NULL;
-    fichier=fopen("liste_animaux.txt","r+");
+    fichier=fopen("Animaux/liste_animaux.txt","r+");
     if (fichier==NULL ){
         printf("Ouverture du fichier impossible\n");
         exit(1);
