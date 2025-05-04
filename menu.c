@@ -25,7 +25,7 @@ void afficherMenu(){
                 rechercherAnimaux();
             break;
             case 3:
-                adopterAnimal();
+                 adoption_animal();
             break;
             case 4: {
                 inventaireRefuge();
