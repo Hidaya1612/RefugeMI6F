@@ -1,22 +1,29 @@
 #include "refuge.h"
 
-void  corrigeNom(Animal a){
+void  corrigeNom(Animal* a){
     // Vérification si le nom est vide
-    if (a.name == NULL || a.name[0] == '\0') {
-        printf("Erreur sur le prénom!\n");
-	exit(1);
+    if (a->name == NULL || a->name[0] == '\0') {
+        printf("Erreur : Le nom est vide.\n");
+        return;
+    }
+
+    for (int i = 0; a->name[i] != '\0'; i++) {
+        if ((a->name[i] < 'a' || a->name[i] > 'z') && (a->name[i] < 'A' || a->name[i] > 'Z')) {
+            printf("Erreur : Le nom contient un caractère non alphabétique : '%c'\n", a->name[i]);
+            exit(1);
+        }
     }
 
     // Correction de la première lettre
-    if (a.name[0] >= 'a' && a.name[0] <= 'z') { // La première est minuscule
-        a.name[0] -= 32;
+    if (a->name[0] >= 'a' && a->name[0] <= 'z') { // La première est minuscule
+        a->name[0] -= 32;
     }
 
     // Les autres lettres
     int i = 1;
-    while (a.name[i] != '\0') {
-        if (a.name[i] >= 'A' && a.name[i] <= 'Z') { // Si majuscule
-            a.name[i] += 32; // Convertir en minuscule
+    while (a->name[i] != '\0') {
+        if (a->name[i] >= 'A' && a->name[i] <= 'Z') { // Si majuscule
+            a->name[i] += 32; // Convertir en minuscule
         }
         i++;
     }
