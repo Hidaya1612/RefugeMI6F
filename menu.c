@@ -28,7 +28,7 @@ void afficherMenu(){
                  adoption_animal();
             break;
             case 4: {
-                inventaireRefuge();
+                inv_age_asc();
                 break;
             }
             case 5:
