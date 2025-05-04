@@ -50,19 +50,13 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
     if (tab == NULL || nb_animaux <= 0 || pMin == NULL || pMax == NULL) {
         exit (2);
     }
-    int minAge = 2025 - tab[0].date_of_birth.year;
+    int minAge = 2025 - tab[0].year_of_birth;
     int maxAge = minAge;
 
-    if (tab[0].date_of_birth.month > 1 || (tab[0].date_of_birth.month == 1 && tab[0].date_of_birth.day > 1)) {
-        minAge--;
-        maxAge--;
-       }
+
 
     for(int i=0; i<nb_animaux; i++){
-        int age = 2025 - tab[i].date_of_birth.year;
-        if (tab[i].date_of_birth.month > 1 || (tab[i].date_of_birth.month == 1 && tab[i].date_of_birth.day > 1)) {
-            age--;
-        }
+        int age = 2025 - tab[i].year_of_birth;
         if (minAge > age){
             minAge = age;
         }
@@ -77,17 +71,14 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
 
 void inv_age_asc(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
     if (tab == NULL || nb_animaux <= 0 || pMin == NULL || pMax == NULL) {
-        printf("Erreur : paramètres invalides.\n");
+        printf("Erreur.\n");
         exit(2);
     }
     int range = (*pMax - *pMin) / 4;
     int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
 
     for (int i = 0; i < nb_animaux; i++) {
-        int age = 2025 - tab[i].date_of_birth.year;
-        if (tab[i].date_of_birth.month > 1 || (tab[i].date_of_birth.month == 1 && tab[i].date_of_birth.day > 1)) {
-            age--;
-        }
+        int age = 2025 - tab[i].year_of_birth;
 
         if (age >= *pMin && age < *pMin + range) {
             quartile1++;
