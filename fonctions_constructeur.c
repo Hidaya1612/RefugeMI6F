@@ -29,16 +29,16 @@ void  corrigeNom(Animal* a){
     }
 }
 
-Animal ajouter_Animal(FILE* f1, FILE* f2){
+Animal ajouter_Animal(FILE* f1){
     Animal a;
 
     //Gestion des fichiers
-    if (f1 == NULL || f2 == NULL){
+    if (f1 == NULL){
         printf("Ouverture du fichier impossible\n");
         exit(1);
     }
 
-    // Initialisation des champs
+    // Allocation mémoire
     a.name = malloc(50 * sizeof(char));;
     a.description = malloc(50 * sizeof(char));
     if (a.name==NULL || a.description==NULL) {
@@ -59,7 +59,10 @@ Animal ajouter_Animal(FILE* f1, FILE* f2){
         printf("Erreur dans la saisie du nom!n");
         exit(1);
     }
-    corrigeNom(a);
+    corrigeNom(&a);
+
+    // Affichage du nom corrigé
+    printf("Nom corrigé : %s\n", a.name);
 
     printf("Veuillez saisir l'espece de l'animal : 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
     if (scanf("%d",&a.species)!= 1 || a.species < 0 || a.species > 3) {
@@ -68,27 +71,26 @@ Animal ajouter_Animal(FILE* f1, FILE* f2){
     }
 
     printf("Veuillez saisir le poid de l'animal: \n");
-    if (scanf("%f", &a.weight || a.weight < 0 || a.weight > 150)){
+    if (scanf("%f", &a.weight)!=1 || a.weight < 0 || a.weight > 150){
         printf("Erreur dans la saisie du poids ! \n");
         exit(1);
     }
 
     printf("Veuillez saisir l'année de naissance de l'animal: \n");
-    if (scanf("%d", a.year_of_birth)!= 1 || a.year_of_birth<1980 || a.year_of_birth>2025) {
+    if (scanf("%d", &a.year_of_birth)!= 1 || a.year_of_birth<1980 || a.year_of_birth>2025){
         printf("Erreur dans la saisie de l'année de naissance de l'animal!\n");
         exit(1);
     }
 
     printf("Veuillez saisir une description sur l'animal (facultatif) : \n");
         while (getchar() != '\n');
-        fgets(a.description, 50, stdin);
+        if (fgets(a.description, TAILLE, stdin) == NULL || a.description[0] == '\n') {
+            strcpy(a.description, "Aucune description");
+        }else {
+            a.description[strcspn(a.description, "\n")] = '\0'; // Supprimer le saut de ligne
+        }
 
-    fprintf(f1, "%d\n", a.identification_number);
-
-    char filename[20];
-    sprintf(filename, "%d.txt", a.identification_number);
-
-    fprintf(f2, "%s %d %d %f %s ;\n", a.name, a.species, a.year_of_birth, a.weight, a.description);
+    fprintf(f1, "%s %d %d %f %s ;\n", a.name, a.species, a.year_of_birth, a.weight, a.description);
     return a;
 }
 
