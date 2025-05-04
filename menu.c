@@ -28,8 +28,8 @@ void afficherMenu(){
                  adoption_animal();
             break;
             case 4: {
-                inv_age_asc();
-                break;
+                inv_age_asc(tab, nb_animaux);
+            break;
             }
             case 5:
                 day_clean(refuge, nombre_animaux);
