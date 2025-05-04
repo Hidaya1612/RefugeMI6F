@@ -167,6 +167,7 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
         }
     if (nb_animaux==0) {
         printf("Aucun animal ne correspond a votre recherche\n");
+	afficherMenu();
     }
     else {
         int continuer=0;
@@ -180,8 +181,11 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
         if (continuer == 1) {
             rechercherAnimaux(tab, nb_animaux);
         }
+	else{
+		afficherMenu();
+	}
     }
-    afficherMenu();
+    
 }
 
 
