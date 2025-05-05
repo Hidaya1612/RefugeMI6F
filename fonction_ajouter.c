@@ -7,30 +7,30 @@ int scan(char* mode, void* input){
     return a;
 }
 
-void  corrigeNom(Animal a){
+void  corrigeNom(char mot[]){
     // Vérification si le nom est vide
-    if (a.name == NULL || a.name[0] == '\0') {
+    if (mot[0] == '\0') {
         printf("Erreur sur le prénom!\n");
-	exit(1);
+	    exit(1);
     }
     
-    for (int i = 0; a.name[i] != '\0'; i++) {
-        if ((a.name[i] < 'a' || a.name[i] > 'z') && (a.name[i] < 'A' || a.name[i] > 'Z')) {
-                printf("Erreur : Le nom contient un caractère non alphabétique : '%c'\n", a.name[i]);
+    for (int i = 0; mot[i] != '\0'; i++) {
+        if ((mot[i] < 'a' || mot[i] > 'z') && (mot[i] < 'A' || mot[i] > 'Z')) {
+                printf("Erreur : Le nom contient un caractère non alphabétique : '%c'\n", mot[i]);
                 exit(1);
         }
     }
 
     // Correction de la première lettre
-    if (a.name[0] >= 'a' && a.name[0] <= 'z') { // La première est minuscule
-        a.name[0] -= 32;
+    if (mot[0] >= 'a' && mot[0] <= 'z') { // La première est minuscule
+        mot[0] -= 32;
     }
 
     // Les autres lettres
     int i = 1;
-    while (a.name[i] != '\0') {
-        if (a.name[i] >= 'A' && a.name[i] <= 'Z') { // Si majuscule
-            a.name[i] += 32; // Convertir en minuscule
+    while (mot[i] != '\0') {
+        if (mot[i] >= 'A' && mot[i] <= 'Z') { // Si majuscule
+            mot[i] += 32; // Convertir en minuscule
         }
         i++;
     }
@@ -70,7 +70,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
             exit(1);
         }
         tab[nb_animaux].name=temporaire_nom;
-        corrigeNom(tab[nb_animaux]);
+        corrigeNom(tab[nb_animaux].name);
         //printf("%s\n",tab[nb_animaux].name);
         
         printf("Veuillez saisir l'espece de l'animal :\n 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
