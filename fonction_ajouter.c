@@ -7,6 +7,36 @@ int scan(char* mode, void* input){
     return a;
 }
 
+void  corrigeNom(Animal a){
+    // Vérification si le nom est vide
+    if (a.name == NULL || a.name[0] == '\0') {
+        printf("Erreur sur le prénom!\n");
+	exit(1);
+    }
+    
+    for (int i = 0; a.name[i] != '\0'; i++) {
+        if ((a.name[i] < 'a' || a.name[i] > 'z') && (a.name[i] < 'A' || a.name[i] > 'Z')) {
+                printf("Erreur : Le nom contient un caractère non alphabétique : '%c'\n", a.name[i]);
+                exit(1);
+        }
+    }
+
+    // Correction de la première lettre
+    if (a.name[0] >= 'a' && a.name[0] <= 'z') { // La première est minuscule
+        a.name[0] -= 32;
+    }
+
+    // Les autres lettres
+    int i = 1;
+    while (a.name[i] != '\0') {
+        if (a.name[i] >= 'A' && a.name[i] <= 'Z') { // Si majuscule
+            a.name[i] += 32; // Convertir en minuscule
+        }
+        i++;
+    }
+}
+
+
 void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
     
     int nb_animaux=*pnb_animaux;
@@ -41,7 +71,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
         }
         tab[nb_animaux].name=temporaire_nom;
         corrigeNom(tab[nb_animaux]);
-        printf("%s\n",tab[nb_animaux].name);
+        //printf("%s\n",tab[nb_animaux].name);
         
         printf("Veuillez saisir l'espece de l'animal :\n 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
         if (scan("%d",&tmp)!= 1 || tmp < 0 || tmp > 3) {
@@ -49,21 +79,21 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
             exit(1);
         }
         tab[nb_animaux].species=tmp;
-        printf("%d\n",tab[nb_animaux].species);
+        //printf("%d\n",tab[nb_animaux].species);
         
         printf("Veuillez saisir le poids de l'animal: \n");
         if (scan("%f", &tab[nb_animaux].weight)!=1 || tab[nb_animaux].weight < 0 || tab[nb_animaux].weight > 150){
             printf("Erreur dans la saisie du poids ! \n");
             exit(1);
         }
-        printf("%f",tab[nb_animaux].weight);
+        //printf("%f",tab[nb_animaux].weight);
     
         printf("Veuillez saisir l'année de naissance de l'animal: \n");
         if (scan("%d", &tab[nb_animaux].year_of_birth)!= 1 || tab[nb_animaux].year_of_birth<1980 || tab[nb_animaux].year_of_birth>2025) {
             printf("Erreur dans la saisie de l'année de naissance de l'animal!\n");
             exit(1);
         }
-        printf("%d",tab[nb_animaux].year_of_birth);
+        //printf("%d",tab[nb_animaux].year_of_birth);
         
         printf("Voulez-vous ajouter une description sur l'animal:\n tapez 1 pour oui sinon tapez 2\n");
         if (scan("%d",&choix_descriptif)!=1 || choix_descriptif<1 || choix_descriptif>2){
@@ -83,7 +113,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
                 exit(1);
             }
             tab[nb_animaux].description=temporaire_descriptif;
-            printf("%s",tab[nb_animaux].description);
+            //printf("%s",tab[nb_animaux].description);
         }
         else{
             tab[nb_animaux].description=malloc(1);
