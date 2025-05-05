@@ -44,7 +44,7 @@ void day_clean(Animal* tab, int taille, int nb_animaux){
     m=clean_time;
     printf("Il faudra prévoir %dmin de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",m);
   }
-  
+  afficherMenu();
 }
 
 void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
