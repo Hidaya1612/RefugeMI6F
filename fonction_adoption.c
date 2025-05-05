@@ -52,5 +52,5 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
             *pnb_animaux=stockage_animaux(tab,taille);
         }
     }
-  
+    afficherMenu();
 }
