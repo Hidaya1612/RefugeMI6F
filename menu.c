@@ -1,3 +1,5 @@
+#include"refuge.h"
+
 void afficherMenu(){
     int choix;
 
