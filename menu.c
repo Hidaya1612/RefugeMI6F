@@ -22,7 +22,7 @@ void afficherMenu(){
                 ajouterAnimal();
             break;
             case 2:
-                rechercherAnimaux();
+                rechercherAnimaux(tab, nb_animaux);
             break;
             case 3:
                  adoption_animal();
