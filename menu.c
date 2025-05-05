@@ -1,9 +1,7 @@
 #include"refuge.h"
 
 void afficherMenu(){
-    int choix;
-    int tab[TAILLE];
-    int nb_animaux=stockage_animaux(tab,TAILLE);
+        int choix;
         printf("\n*******MENU PRINCIPAL*******\n");
         printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
@@ -22,20 +20,20 @@ void afficherMenu(){
 
         switch (choix) {
             case 1:
-                ajouterAnimal();
+                ajouterAnimal(tab_animaux,TAILLE,&nb_animaux);
             break;
             case 2:
-                rechercherAnimaux(tab, nb_animaux);
+                rechercherAnimaux(tab_animaux, nb_animaux);
             break;
             case 3:
-                 adoption_animal();
+                 adoption_animal(tab_animaux,TAILLE,&nb_animaux);
             break;
             case 4: {
                 inv_age_asc(tab, nb_animaux);
             break;
             }
             case 5:
-                day_clean(refuge, nombre_animaux);
+                day_clean(tab_animaux,TAILLE,nb_animaux);
             break;
             case 6:
                 printf("Au revoir !\n");
