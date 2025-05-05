@@ -135,8 +135,7 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
                     test = scanf("%s", name);
                     while (getchar() != '\n') {};
                 } while (test <= 0);
-                printf("nb_animaux avant recherche: %d\n", nb_animaux);
-                fflush(stdout);
+                corrigeNom(&name);
                 tab=rechercheparNom(name,tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
             break;
