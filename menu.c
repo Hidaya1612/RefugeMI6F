@@ -2,7 +2,8 @@
 
 void afficherMenu(){
     int choix;
-
+    int tab[TAILLE];
+    int nb_animaux=stockage_animaux(tab,TAILLE);
         printf("\n*******MENU PRINCIPAL*******\n");
         printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
