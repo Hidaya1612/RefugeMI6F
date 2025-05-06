@@ -2,7 +2,7 @@
 
 void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
         int choix;
-        printf("\n*******MENU PRINCIPAL*******\n");
+        printf("\n**************MENU PRINCIPAL**************\n");
         printf("1. Rechercher un animal\n");
         printf("2. Ajouter un animal qui vous a été confié\n");
         printf("3. Adopter un animal\n");
