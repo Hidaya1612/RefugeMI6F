@@ -111,7 +111,7 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
         fflush(stdout);
     }
 
-   	int test = 0;
+   
 	int ageType=0;
     char name[100];
     int species=0;
@@ -130,19 +130,16 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
             case 1:
 
                 printf("Entrez le nom : ");
-                if (scan("%s",&name)!=1){
-                    printf("Erreur dans la saisie du nom.\n");
-                    exit(13);
-                }
+                scan("%s",&name);    
                 corrigeNom(name);
                 tab=rechercheparNom(name,tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
             break;
             case 2:
                 printf("Entrez l'espèce (0: DOG, 1: CAT, 2: HAMSTER, 3: OSTRICH) : ");
-                if (scan("%d",&species)!=1 || species<0 || species>3){
-                    printf("Mauvaise saisie dans le numero d'espece.\n");
-                    exit(13);
+                while(species<0 || species>3){
+                	printf("mauvaise saisie du numero d'espece.\n");
+                	scan(%d, &species);
                 }
                 tab=rechercheparEspece(species,tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
@@ -150,9 +147,9 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
                 break;
             case 3:
                 printf("Entrez le type d'âge (1: Jeune <2 ans, 2: Senior >10 ans) : ");
-                if (scan("%d",&ageType)!=1 || (ageType != 1 && ageType != 2)){
-                    printf("Mauvaise saisie dans le type d'age.\n");
-                    exit(13);
+                while(ageType != 1 && ageType != 2){
+                	printf("mauvaise saisie du choix.\n");
+                	scan(%d, &ageType);
                 }
                 tab=rechercheparAge(ageType, tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
@@ -169,7 +166,7 @@ Animal* rechercherAnimaux(Animal tab[], int nb_animaux) {
         int continuer=0;
         printf("voulez vous rechercher a partir d'un autre critere\n");
         printf("appuyez sur 1 si oui, 0 sinon\n");
-        if (scan("%d",&continuer)!=1 ||  continuer != 1 && continuer !=0){
+        if (scan("%d",&continuer)!=1 || ( continuer != 1 && continuer !=0)){
             printf("Mauvaise saisie du choix\n");
             exit(13);
         }
