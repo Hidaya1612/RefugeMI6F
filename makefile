@@ -2,7 +2,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 LDFLAGS = 
-SRC = main.c refuge.h fonction_variante.c fonction_ajouter.c fonction_stockage.c Autres.cpp fonction_adoption.c menu.c rechercheNv.c
+SRC = main.c refuge.h fonction_variante.c fonction_ajouter.c fonction_stockage.c fonction_adoption.c menu.c rechercheNv.c
 OBJ = $(SRC:.c=.o)
 EXEC = Projet
 
