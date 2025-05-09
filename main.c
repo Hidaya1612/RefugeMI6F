@@ -2,7 +2,7 @@
 
 int main(){
 
-    Animal* tab_animaux[TAILLE];
+    Animal tab_animaux[TAILLE];
     int nb_animaux = stockage_animaux(tab_animaux, TAILLE);
 
 
