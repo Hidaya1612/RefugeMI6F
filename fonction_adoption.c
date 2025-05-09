@@ -1,6 +1,6 @@
 #include "refuge.h"
 
-void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
+void adoption_animal(Animal* tab, int taille, int* pnb_animaux){ //supprime un animal au tableau et au fichier
 
     //variables locales
     int id=-1;
