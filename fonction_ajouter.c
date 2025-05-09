@@ -1,6 +1,6 @@
 #include "refuge.h"
 
-void scan(char* mode, void* input){ //vérifie que les scan soient bien positifs et corrects
+void scan(char* mode, void* input){ //vérifie que les retours du scan soient bien positifs
     int a=scanf(mode, input);
     while(getchar()!='\n'){};
     if(a<=0){
@@ -15,7 +15,8 @@ void  corrigeNom(char mot[]){ //corrige les prénoms saisis par les utilisateurs
         printf("Erreur sur le prénom!\n");
 	    exit(1);
     }
-	//Vérifie  si les caractères saisis sont bien des lettres
+
+    //Vérifie  si les caractères saisis sont bien des lettres
     for (int i = 0; mot[i] != '\0'; i++) {
         if ((mot[i] < 'a' || mot[i] > 'z') && (mot[i] < 'A' || mot[i] > 'Z')) {
                 printf("Erreur : Le nom contient un caractere non alphabetique : '%c'\n", mot[i]);
@@ -43,6 +44,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 
     int nb_animaux=*pnb_animaux;
 
+    //Vérification des paramètres
     if (tab == NULL || pnb_animaux == NULL || taille<=0 || nb_animaux<0 || nb_animaux>taille){
         printf("allocation échoué ou taille/nombre animaux incohérente\n");
         exit(1);
@@ -59,7 +61,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         tab[nb_animaux].num_identification=tab[nb_animaux-1].num_identification+1;
 
         // Saisie des informations de l'animal
-
+	//Nom
         printf("Veuillez saisir le nom de l'animal : \n");
         scan("%s",temporaire_nom);
 
@@ -71,18 +73,20 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
         tab[nb_animaux].nom=temporaire_nom;
         corrigeNom(tab[nb_animaux].nom);
-        //printf("%s\n",tab[nb_animaux].name);
 
+	    
+	//Espèce
         printf("Veuillez saisir l'espece de l'animal :\n 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
 	scan("%d",&tmp);
 	while(tmp < 0 || tmp > 3){
 		printf("Erreur de la saisie de l'espece! \n");
 		scan("%d",&tmp);
 	}
-
+	    
+	//Variable intermédiaire
         tab[nb_animaux].espece=tmp;
-        //printf("%d\n",tab[nb_animaux].species);
-
+	    
+	//Poids
         printf("Veuillez saisir le poids de l'animal: \n");
 	scan("%f", &tab[nb_animaux].poids);
 	while(tab[nb_animaux].poids < 0 || tab[nb_animaux].poids > 150){
@@ -90,8 +94,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 		scan("%f", &tab[nb_animaux].poids);
 	}
 
-        //printf("%f",tab[nb_animaux].weight);
-
+	//Année de naissance
         printf("Veuillez saisir l'année de naissance de l'animal: \n");
 	scan("%d", &tab[nb_animaux].annee_de_naissance);
 	while(tab[nb_animaux].annee_de_naissance<1980 || tab[nb_animaux].annee_de_naissance>2025){
@@ -99,9 +102,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 		scan("%d", &tab[nb_animaux].annee_de_naissance);
 	}
 
-
-        //printf("%d",tab[nb_animaux].year_of_birth);
-
+	//Description
         printf("Voulez-vous ajouter une description sur l'animal:\n tapez 1 pour oui sinon tapez 2\n");
 	scan("%d",&choix_descriptif);
 	while(choix_descriptif<1 || choix_descriptif>2){
@@ -118,13 +119,13 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
                 exit(1);
             }
             tab[nb_animaux].description=temporaire_descriptif;
-            //printf("%s",tab[nb_animaux].description);
         }
         else{
             tab[nb_animaux].description=malloc(1);
             tab[nb_animaux].description[0]='\0';
         }
 
+	//Gestion du fichier
         FILE* fichier=NULL;
         fichier=fopen("liste_animaux.txt","a+");
         if (fichier==NULL ){
@@ -132,6 +133,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
             exit(1);
         }
 
+	//Ecriture du nouvel animal dans le fichier
         fprintf(fichier,"%d %s %d %d %f",tab[nb_animaux].num_identification,tab[nb_animaux].nom,tab[nb_animaux].espece,tab[nb_animaux].annee_de_naissance,tab[nb_animaux].poids);
         if (strlen(tab[nb_animaux].description)!=0){
             fprintf(fichier," %s;\n",tab[nb_animaux].description);
@@ -141,7 +143,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
         rewind(fichier);
         fclose(fichier);
-        *pnb_animaux=stockage_animaux(tab,taille);;
+        *pnb_animaux=stockage_animaux(tab,taille); //Mise a jour du nombre d'animaux
 
     }
     printf("L'animal %s a bien ete ajoute au refuge.\n", tab[nb_animaux].nom);
