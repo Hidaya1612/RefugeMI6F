@@ -1,13 +1,13 @@
 #include "refuge.h"
 
-//weekly time to clean shelters
+//temps hebdomadaire pour nettoyer les abris
 void nettoyage(Animal* tab, int taille,  int nb_animaux){
   // Locals
   int temps_nettoyage=0;
   int h=-1;
   int m=-1;
 
-  //Check parameters
+  //Vérification des paramètres
   if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>TAILLE){
     printf("allocation échoué ou taille/nombre animaux incohérente\n");
     exit(1);
@@ -30,7 +30,7 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
   }
   temps_nettoyage+=(taille-nb_animaux)*14;
 
-  //Check clean_time value
+  //Vérifier la valeur du temps de nettoyage
   if (temps_nettoyage%60==0){
     h=temps_nettoyage/60;
     printf("Il faudra prévoir %dh de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",h);
@@ -71,10 +71,13 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
 
 
 void inv_age_asc(Animal* tab, int nb_animaux) {
+    //Vérification des paramètres
     if (tab == NULL || nb_animaux <= 0) {
         printf("Erreur.\n");
         exit(2);
     }
+  
+    //Initialisation des champs
     int pMin=0;
     int pMax=0;
     extremums(tab, nb_animaux, &pMin, &pMax);
