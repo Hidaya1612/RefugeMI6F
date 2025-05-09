@@ -15,7 +15,7 @@ void  corrigeNom(char mot[]){ //corrige les prénoms saisis par les utilisateurs
         printf("Erreur sur le prénom!\n");
 	    exit(1);
     }
-
+	//Vérifie  si les caractères saisis sont bien des lettres
     for (int i = 0; mot[i] != '\0'; i++) {
         if ((mot[i] < 'a' || mot[i] > 'z') && (mot[i] < 'A' || mot[i] > 'Z')) {
                 printf("Erreur : Le nom contient un caractere non alphabetique : '%c'\n", mot[i]);
