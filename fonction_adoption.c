@@ -15,6 +15,7 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
     //vérification du nb d'animaux
     if (nb_animaux==0){
         printf("Il n'est plus possible d'adopter un animal dans ce refuge.\n");
+        afficherMenu(tab, TAILLE, *pnb_animaux);
     }
     else{ // Possibilité d'adoption
         printf("Saisir le numero d'identification de l'animal que vous voulez adopter:\n");
@@ -40,7 +41,7 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
         }
         else{
             FILE* fichier=NULL;
-            fichier=fopen("liste_animaux.txt","w+");// ouvre le fichier et efface tout le contenu
+            fichier=fopen("Animaux/liste_animaux.txt","w+");// ouvre le fichier et efface tout le contenu
             if (fichier==NULL ){
                 printf("Ouverture du fichier impossible\n");
                 exit(1);
@@ -61,7 +62,8 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
             fclose(fichier);
             *pnb_animaux=stockage_animaux(tab,taille); //Mise à jour du nb d'animaux
             printf("L'animal avec le numero d'identification %d a bien ete adopte.\n", id);
+            afficherMenu(tab, TAILLE, *pnb_animaux);
         }
     }
-    afficherMenu(tab, TAILLE, *pnb_animaux);
+    
 }

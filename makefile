@@ -1,17 +1,15 @@
 # Variables
 CC = gcc
-SRC = main.c fonction_variante.c fonction_ajouter.c fonction_stockage.c fonction_adoption.c menu.c rechercheNv.c
-OBJ = $(SRC:.c=.o)
-EXEC = Projet
+SRC = $(wildcard *.c)
+OBJ=$(SRC:.c=.o)
 
-# Règles
-all: $(EXEC)
+all: exec
 
-$(EXEC): $(OBJ)
-	$(CC) -o $@ $^ 
-
-%.o: %.c refuge.h
-	$(CC) -o $@ -c 
+%.o : %.c refuge.h
+	$(CC) -c $< -o $@
+	
+exec : $(OBJ)
+	$(CC) $^ -o $@
 
 clean:
 	rm -f $(OBJ)

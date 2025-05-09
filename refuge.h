@@ -22,7 +22,7 @@ typedef struct {
 //Prototypes
 int stockage_animaux(Animal* tab, int taille);
 void scan(char* mode, void* input);
-void corrigeNom(char mot[]);
+int corrigeNom(char mot[]);
 void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux);
 void adoption_animal(Animal* tab, int taille, int* pnb_animaux);
 void nettoyage(Animal* tab, int taille, int nb_animaux);

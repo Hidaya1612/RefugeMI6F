@@ -125,7 +125,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
             case 1:
 
                 printf("Entrez le nom : ");
-                scan("%s",&nom);
+                scan("%98s",&nom);
                 corrigeNom(nom);
                 tab=rechercheparNom(nom,tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
