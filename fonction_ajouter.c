@@ -5,7 +5,7 @@ void scan(char* mode, void* input){ //vérifie que les retours du scan soient bi
     while(getchar()!='\n'){};
     if(a<=0){
     	printf("Erreur scanf, entrer une valeur correcte.\n");
-        scan(mode,input);
+        scan(mode,input); // Relance la saisie en cas d’erreur
     }
 }
 
@@ -37,12 +37,11 @@ int  corrigeNom(char mot[]){ //corrige les prénoms saisis par les utilisateurs
         }
         i++;
     }
-    return 0;
+    return 0; // Nom valide et corrigé
 }
 
 
-void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un animal au refuge
-
+void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un animal au tableau et au fichier
     int nb_animaux=*pnb_animaux;
 
     //Vérification des paramètres
@@ -51,19 +50,22 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         exit(1);
     }
 
+    // Si le refuge est plein
     if (nb_animaux==50){
         printf ("Le refuge ne prend plus d'animaux.\n");
         afficherMenu(tab, TAILLE, *pnb_animaux);
     }
     else{
+	// Variables temporaires pour stocker les infos saisies
         char temporaire_nom[100];
         char temporaire_descriptif[100];
         int choix_descriptif;
         int tmp=-1;
+	// Génération automatique de l'identifiant
         tab[nb_animaux].num_identification=tab[nb_animaux-1].num_identification+1;
 
         // Saisie des informations de l'animal
-	//Nom
+	//----Nom----
         printf("Veuillez saisir le nom de l'animal : \n");
         scan("%98s",temporaire_nom);
         
@@ -83,7 +85,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         tab[nb_animaux].nom=temporaire_nom;
 
 	    
-	//Espèce
+	//----Espèce----
         printf("Veuillez saisir l'espece de l'animal :\n 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
 	scan("%d",&tmp);
 	while(tmp < 0 || tmp > 3){
@@ -94,7 +96,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 	//Variable intermédiaire
         tab[nb_animaux].espece=tmp;
 	    
-	//Poids
+	//----Poids----
         printf("Veuillez saisir le poids de l'animal: \n");
 	scan("%f", &tab[nb_animaux].poids);
 	while(tab[nb_animaux].poids <= 0 || tab[nb_animaux].poids > 150){
@@ -102,7 +104,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 		scan("%f", &tab[nb_animaux].poids);
 	}
 
-	//Année de naissance
+	//----Année de naissance----
         printf("Veuillez saisir l'année de naissance de l'animal: \n");
 	scan("%d", &tab[nb_animaux].annee_de_naissance);
 	while(tab[nb_animaux].annee_de_naissance<1980 || tab[nb_animaux].annee_de_naissance>2025){
@@ -110,7 +112,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 		scan("%d", &tab[nb_animaux].annee_de_naissance);
 	}
 
-	//Description
+	//----Description----
         printf("Voulez-vous ajouter une description sur l'animal:\n tapez 1 pour oui sinon tapez 2\n");
 	scan("%d",&choix_descriptif);
 	while(choix_descriptif<1 || choix_descriptif>2){
