@@ -1,7 +1,7 @@
 #include"refuge.h"
 
 Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) { //fonction qui recherche un animal à partir de son nom
-    if (animaux==NULL || nomRecherche==NULL || nb_animaux==NULL || *nb_animaux<=0) {
+    if (nomRecherche==NULL || nb_animaux==NULL || *nb_animaux<=0) {
         return NULL;
     }
 
@@ -33,7 +33,7 @@ Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) {
 
 
 Animal* rechercheparEspece(Espece s, Animal animaux[], int* nb_animaux) { //fonction qui recherche un animal à partir de son espèce
-    if (animaux==NULL || nb_animaux==NULL) {
+    if (nb_animaux==NULL) {
         exit(0);
     }
 
@@ -64,7 +64,7 @@ Animal* rechercheparEspece(Espece s, Animal animaux[], int* nb_animaux) { //fonc
 }
 
 Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { ////fonction qui recherche un animal à partir de son âge
-    if (animaux==NULL || nb_animaux==NULL) {
+    if (nb_animaux==NULL) {
         exit(0);
     }
     int cmp = 0;
@@ -104,25 +104,18 @@ void afficheAnimaux(Animal animal[], int nb_animaux) { //affiche toutes les info
 
 
 void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherche l'animal et l'affiche par rapport au critère choisi
-    if (tab == NULL) {
-        tab=malloc(TAILLE*sizeof(Animal));
-        nb_animaux=stockage_animaux(tab,TAILLE);
-        printf("nb_animaux avant recherche: %d\n", nb_animaux);
-        fflush(stdout);
-    }
-
 
 	int ageType=0;
-    char nom[100];
-    int espece=0;
-    int choix=0;
+	char nom[100];
+	int espece=0;
+	int choix=0;
 
-    printf("A partir de quel critere voulez vous rechercher l'animal:\n");
-    printf("1. Nom\n");
-    printf("2. Espece\n");
-    printf("3. Type d'age\n");
-  scan("%d",&choix);
-   while( choix<1 || choix>3){
+	printf("A partir de quel critere voulez vous rechercher l'animal:\n");
+	printf("1. Nom\n");
+	printf("2. Espece\n");
+	printf("3. Type d'age\n");
+	scan("%d",&choix);
+	while( choix<1 || choix>3){
        printf("Mauvaise saisie du choix\n");
        printf("Veuillez ressaisir votre choix.\n");
         scan("%d",&choix);
