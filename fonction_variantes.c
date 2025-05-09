@@ -1,47 +1,47 @@
 #include "refuge.h"
 
 //weekly time to clean shelters
-void day_clean(Animal* tab, int taille, int nb_animaux){
+void nettoyage(Animal* tab, int taille,  int nb_animaux){
   // Locals
-  int clean_time=0;
+  int temps_nettoyage=0;
   int h=-1;
   int m=-1;
 
   //Check parameters
-  if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>taille){
+  if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>TAILLE){
     printf("allocation échoué ou taille/nombre animaux incohérente\n");
     exit(1);
   }
 
   //Process
   for (int i=0; i<nb_animaux; i++){
-    if (tab[i].identification_number!=0){
-      switch(tab[i].species){
+    if (tab[i].num_identification!=0){
+      switch(tab[i].espece){
         case 0:
-          clean_time+=55;
+          temps_nettoyage+=55;
           break;
         case 3:
-          clean_time+=185;
+          temps_nettoyage+=185;
           break;
         default:
-          clean_time+=90;
+          temps_nettoyage+=90;
       }
     }
   }
-  clean_time+=(taille-nb_animaux)*14;
-  
+  temps_nettoyage+=(taille-nb_animaux)*14;
+
   //Check clean_time value
-  if (clean_time%60==0){
-    h=clean_time/60;
+  if (temps_nettoyage%60==0){
+    h=temps_nettoyage/60;
     printf("Il faudra prévoir %dh de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",h);
   }
-  else if (clean_time>60){
-    h=clean_time/60;
-    m=clean_time%60;
+  else if (temps_nettoyage>60){
+    h=temps_nettoyage/60;
+    m=temps_nettoyage%60;
     printf("Il faudra prévoir %dh%d de charge de tavail cette semaine pour nettoyer les abris de chaque animal.\n",h,m);
   }
   else{
-    m=clean_time;
+    m=temps_nettoyage;
     printf("Il faudra prévoir %dmin de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",m);
   }
   afficherMenu(tab, TAILLE, nb_animaux);
@@ -51,13 +51,13 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
     if (tab == NULL || nb_animaux <= 0 || pMin == NULL || pMax == NULL) {
         exit (35);
     }
-    int minAge = 2025 - tab[0].year_of_birth;
+    int minAge = 2025 - tab[0].annee_de_naissance;
     int maxAge = minAge;
 
 
 
     for(int i=0; i<nb_animaux; i++){
-        int age = 2025 - tab[i].year_of_birth;
+        int age = 2025 - tab[i].annee_de_naissance;
         if (minAge > age){
             minAge = age;
         }
@@ -82,7 +82,7 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
     int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
 
     for (int i = 0; i < nb_animaux; i++) {
-        int age = 2025 - tab[i].year_of_birth;
+        int age = 2025 - tab[i].annee_de_naissance;
 
         if (age >= pMin && age < pMin + moyenne) {
             quartile1++;
@@ -105,6 +105,3 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
     printf("Quartile 4 (%d - %d ans) : %d animaux\n", pMin + 3 * moyenne,pMax, quartile4);
     afficherMenu(tab, TAILLE, nb_animaux);
 }
-
-
-
