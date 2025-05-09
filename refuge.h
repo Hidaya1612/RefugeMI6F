@@ -20,7 +20,6 @@ typedef struct {
 } Animal;
 
 //Prototypes
-//Date constructeur();
 int stockage_animaux(Animal* tab, int taille);
 void scan(char* mode, void* input);
 void corrigeNom(char mot[]);
