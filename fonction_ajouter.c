@@ -61,10 +61,8 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
         // Saisie des informations de l'animal
         
         printf("Veuillez saisir le nom de l'animal : \n");
-        if(scan("%s",temporaire_nom)!=1){
-            printf("Erreur dans la saisie du nom!n");
-            exit(1);
-        }
+        scan("%s",temporaire_nom);
+	    
         tab[nb_animaux].name=NULL;
         tab[nb_animaux].name=malloc(strlen(temporaire_nom)*(sizeof(char)+1));
         if(tab[nb_animaux].name==NULL){
@@ -76,39 +74,44 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
         //printf("%s\n",tab[nb_animaux].name);
         
         printf("Veuillez saisir l'espece de l'animal :\n 0 pour chien\n 1 pour chat\n 2 pour hamster\n 3 pour autruche\n");
-        if (scan("%d",&tmp)!= 1 || tmp < 0 || tmp > 3) {
-            printf("Erreur de la saisie de l'espece! \n");
-            exit(1);
-        }
+	scan("%d",&tmp)
+	while(tmp < 0 || tmp > 3){
+		printf("Erreur de la saisie de l'espece! \n");    
+		scan("%d",&tmp);
+	}
+        
         tab[nb_animaux].species=tmp;
         //printf("%d\n",tab[nb_animaux].species);
         
         printf("Veuillez saisir le poids de l'animal: \n");
-        if (scan("%f", &tab[nb_animaux].weight)!=1 || tab[nb_animaux].weight < 0 || tab[nb_animaux].weight > 150){
-            printf("Erreur dans la saisie du poids ! \n");
-            exit(1);
-        }
+	scan("%f", &tab[nb_animaux].weight)
+	while(tab[nb_animaux].weight < 0 || tab[nb_animaux].weight > 150){
+		printf("Erreur de la saisie du poids! \n");    
+		scan("%f", &tab[nb_animaux].weight);
+	}
+       
         //printf("%f",tab[nb_animaux].weight);
     
         printf("Veuillez saisir l'année de naissance de l'animal: \n");
-        if (scan("%d", &tab[nb_animaux].year_of_birth)!= 1 || tab[nb_animaux].year_of_birth<1980 || tab[nb_animaux].year_of_birth>2025) {
-            printf("Erreur dans la saisie de l'année de naissance de l'animal!\n");
-            exit(1);
-        }
+	scan("%d", &tab[nb_animaux].year_of_birth);
+	while(tab[nb_animaux].year_of_birth<1980 || tab[nb_animaux].year_of_birth>2025){
+		printf("Erreur de la saisie de l'annee de naissance! \n");    
+		scan("%d", &tab[nb_animaux].year_of_birth);
+	}
+       
+        
         //printf("%d",tab[nb_animaux].year_of_birth);
         
         printf("Voulez-vous ajouter une description sur l'animal:\n tapez 1 pour oui sinon tapez 2\n");
-        if (scan("%d",&choix_descriptif)!=1 || choix_descriptif<1 || choix_descriptif>2){
-            printf("Mauvaise saisie par rapport au choix de vouloir ajouter un descriptif à l'animal!\n");
-            exit(1);
-        }
+	scan("%d",&choix_descriptif);
+	while(choix_descriptif<1 || choix_descriptif>2){
+		printf("Erreur de la saisie du choix pour ajouter un descriptif à l'animal!! \n");    
+		scan("%d",&choix_descriptif);
+	}
         tab[nb_animaux].description=NULL;
         if (choix_descriptif==1){
             printf("Veuillez saisir une description sur l'animal :\n ");
-            if(scan("%[^\n]",temporaire_descriptif)!=1 ){
-                printf("Erreur dans la saisie de la description!\n");
-                exit(1);
-            }
+            scan("%[^\n]",temporaire_descriptif);
             tab[nb_animaux].description=malloc(strlen(temporaire_descriptif)*sizeof(char)+1);
             if(tab[nb_animaux].description==NULL){
                 printf("Allocation réalisée pour le prénom de l'animal échouée\n");
@@ -141,5 +144,5 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
         (*pnb_animaux)++;
           
     }
-    afficherMenu(tab, TAILLE, nb_animaux);
+    afficherMenu(tab, TAILLE, &pnb_animaux);
 }
