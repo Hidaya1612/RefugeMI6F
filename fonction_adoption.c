@@ -55,7 +55,7 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
             }
             rewind(fichier);
             fclose(fichier);
-            *pnb_animaux=stockage_animaux(tab,taille);
+            *pnb_animaux=stockage_animaux(tab,taille); //Mise à jour du nb d'animaux
             printf("L'animal avec le numero d'identification %d a bien ete adopte.\n", id);
         }
     }
