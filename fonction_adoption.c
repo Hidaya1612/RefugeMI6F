@@ -28,6 +28,10 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){
         for (int i=0;i<nb_animaux;i++){
             if(tab[i].num_identification==id){
                 tab[i].num_identification=0;
+                free(tab[i].nom);
+                 if (strlen(tab[i].description)!=0){
+                     free(tab[i].description);
+                 }
                 test++;
             }
         }
