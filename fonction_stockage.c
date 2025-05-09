@@ -35,7 +35,6 @@ int stockage_animaux(Animal* tab, int taille){
             printf("Mauvaise valeur de numero identification dans le fichier\n");
             exit(1);
         }
-        //printf("%d ",tab[i].identification_number);
 
         while(fgetc(fichier)!=' '){
             compteur++;
@@ -54,7 +53,6 @@ int stockage_animaux(Animal* tab, int taille){
             exit(1);
         }
         tab[i].espece=tmp;
-        //printf("%s %d %d %f ",tab[i].name,tmp,tab[i].year_of_birth,tab[i].weight);
 
         while(fgetc(fichier)!=';'){
             compteur++;
