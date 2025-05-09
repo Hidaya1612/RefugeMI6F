@@ -14,36 +14,44 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
   }
 
   //Process
-  for (int i=0; i<nb_animaux; i++){
+  for (int i=0; i<nb_animaux; i++){ // parcours du tableau
     if (tab[i].num_identification!=0){
       switch(tab[i].espece){
-        case 0:
+        case 0: // si chien
           temps_nettoyage+=55;
           break;
-        case 3:
+        case 3: // si autruche
           temps_nettoyage+=185;
           break;
-        default:
+        default: // si chat ou hamster
           temps_nettoyage+=90;
       }
     }
   }
-  temps_nettoyage+=(taille-nb_animaux)*14;
+  temps_nettoyage+=(taille-nb_animaux)*14; // si cage vide
 
-  //Vérifier la valeur du temps de nettoyage
+  //Vérifier la valeur du temps de nettoyage pour l'afficher
+
+  // que des heures
   if (temps_nettoyage%60==0){
     h=temps_nettoyage/60;
     printf("Il faudra prévoir %dh de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",h);
   }
+
+  // heures et minutes
   else if (temps_nettoyage>60){
     h=temps_nettoyage/60;
     m=temps_nettoyage%60;
     printf("Il faudra prévoir %dh%02d de charge de tavail cette semaine pour nettoyer les abris de chaque animal.\n",h,m);
   }
+
+  // que des minutes
   else{
     m=temps_nettoyage;
     printf("Il faudra prévoir %dmin de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",m);
   }
+
+  //appel du menu
   afficherMenu(tab, TAILLE, nb_animaux);
 }
 
