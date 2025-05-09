@@ -1,12 +1,12 @@
 #include "refuge.h"
 
-int scan(char* mode, void* input){
+void scan(char* mode, void* input){
     int a=scanf(mode, input);
     while(getchar()!='\n'){};
     if(a<=0){
+    	printf("Erreur scanf, entrer une valeur correcte.\n");
         scan(mode,input);
     }
-    return a;
 }
 
 void  corrigeNom(char mot[]){
