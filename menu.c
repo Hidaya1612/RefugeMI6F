@@ -1,5 +1,6 @@
 #include"refuge.h"
 
+//procédure du menu
 void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
     int choix;
     printf("\n**************MENU PRINCIPAL**************\n");
@@ -10,7 +11,7 @@ void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
     printf("5. Gestion du nettoyage hebdomadaire\n");
     printf("6. Quitter\n");
 
-    printf("Votre choix : ");
+    printf("Votre choix : ");//demande à l'utilsateur l'action qu'il souhaite effectuer
     scan("%d", &choix);
     while(choix < 0 || choix > 6){
         printf("mauvaise saisie du choix.\n");
@@ -18,6 +19,7 @@ void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
         scan("%d", &choix);
     }
 
+    //appel des fonctions par rapport à la saisie
     switch (choix) {
         case 1:
             rechercherAnimaux(tab_animaux, nb_animaux);
