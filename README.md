@@ -3,7 +3,7 @@ Projet Refuge ChenYI-TECH
 Ce projet pour but de simuler la gestion d’un refuge pour animaux. L’utilisateur peut y ajouter de nouveaux animaux, rechercher ceux déjà présents à l'aide d'un ou plusieurs critères, permettre leur adoption, faire l'inventaire du refuge par rapport aux différents âges des animaux ou encore gérer le temps de nettoyage du refuge.
 Ce refuge peut accueillir jusqu’à 50 animaux. Chaque animal est caractérisé par un numéro d’identification, un nom, une espèce, une année de naissance, un poids et une éventuelle description. Les données sont stockées dans un fichier texte (liste_animaux.txt) et mises à jour dynamiquement.
 
-FONCTIONNALITES 
+FONCTIONNALITÉS 
 
 À travers le menu, on peut :
 
