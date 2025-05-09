@@ -1,8 +1,6 @@
 # Variables
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c11
-LDFLAGS = 
-SRC = main.c refuge.h fonction_variante.c fonction_ajouter.c fonction_stockage.c fonction_adoption.c menu.c rechercheNv.c
+SRC = main.c fonction_variante.c fonction_ajouter.c fonction_stockage.c fonction_adoption.c menu.c rechercheNv.c
 OBJ = $(SRC:.c=.o)
 EXEC = Projet
 
@@ -10,13 +8,11 @@ EXEC = Projet
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-	$(CC) -o $@ $^ $(LDFLAGS)
+	$(CC) -o $@ $^ 
 
-%.o: %.c
-	$(CC) -o $@ -c $< $(CFLAGS)
+%.o: %.c refuge.h
+	$(CC) -o $@ -c 
 
 clean:
 	rm -f $(OBJ)
 
-mrproper: clean
-	rm -f $(EXEC)
