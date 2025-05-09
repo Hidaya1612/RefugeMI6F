@@ -11,11 +11,11 @@ void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
         printf("6. Quitter\n");
 
         printf("Votre choix : ");
-        if(scanf("%d", &choix)!=1 || choix < 0 || choix > 6){
-            printf("Erreur dans votre choix!\n");
-        }
-        while(scanf("%d", &choix)!=1 || choix < 0 || choix > 6){
-            printf("Ressaisir votre choix:\n");    
+	scan("%d", &choix);
+        while(choix < 0 || choix > 6){
+                printf("mauvaise saisie du choix.\n");
+                printf("ressaisir votre choix\n");
+                scan("%d", &choix);
         }
 
         switch (choix) {
