@@ -67,7 +67,6 @@ int stockage_animaux(Animal* tab, int taille){
         }
         fseek(fichier,-(compteur+1),SEEK_CUR);
         fgets(tab[i].description,compteur+1,fichier);
-        //printf("%s\n",tab[i].description);
         compteur=0;
 
         fseek(fichier,1,SEEK_CUR);
@@ -78,7 +77,6 @@ int stockage_animaux(Animal* tab, int taille){
 
     for (int i=nb_animaux;i<taille;i++){
         tab[i].num_identification=0;
-        //printf("%d",tab[i].identification_number);
     }
 
     rewind(fichier);
