@@ -2,15 +2,7 @@
 
 int main(){
 
-    Animal* tab_animaux=NULL;
-
-
-    tab_animaux=malloc(TAILLE*sizeof(Animal));
-    if (tab_animaux==NULL){
-        printf("Allocation échouée\n");
-        exit(1);
-    }
-
+    Animal* tab_animaux[TAILLE];
     int nb_animaux = stockage_animaux(tab_animaux, TAILLE);
 
 
