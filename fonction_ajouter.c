@@ -66,7 +66,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
             exit(1);
         }
         tab[nb_animaux].name=NULL;
-        tab[nb_animaux].name=malloc(strlen(temporaire_nom)*sizeof(char)+1);
+        tab[nb_animaux].name=malloc(strlen(temporaire_nom)*(sizeof(char)+1));
         if(tab[nb_animaux].name==NULL){
             printf("Allocation réalisée pour le prénom de l'animal échouée\n");
             exit(1);
