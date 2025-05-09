@@ -141,7 +141,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){
         }
         rewind(fichier);
         fclose(fichier);
-        (*pnb_animaux)++;
+        *pnb_animaux=stockage_animaux(tab,taille);;
           
     }
     afficherMenu(tab, TAILLE, *pnb_animaux);
