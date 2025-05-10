@@ -49,6 +49,7 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){ //supprime un a
         // l'animal n'existe pas
         if (test==0){
             printf("Aucun animal dans ce refuge porte ce numéro d'identification.\n");
+            afficherMenu(tab, TAILLE, *pnb_animaux);
         }
         //l'animal existe 
         else{
