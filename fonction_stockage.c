@@ -23,6 +23,7 @@ int stockage_animaux(Animal* tab, int taille){
     int compteur=0;
     int tmp=-1;
     int i=0;
+    char test;;
 
     while (caractereActuel != EOF){
 
@@ -54,32 +55,34 @@ int stockage_animaux(Animal* tab, int taille){
         fseek(fichier,-(compteur+1),SEEK_CUR); //curseur replacé devant la première lettre du nom
         compteur=0;
 
-        // son nom, son espèce, son année de naissance, son poids
+        // Son nom, son espèce, son année de naissance, son poids
         if(fscanf(fichier,"%s %d %d %f ",tab[i].nom,&tmp,&tab[i].annee_de_naissance,&tab[i].poids)!=4 || tmp<0 || tmp>3 || tab[i].annee_de_naissance<1980 || tab[i].annee_de_naissance>2025 || tab[i].poids<0 || tab[i].poids>150){
             printf("Mauvaise valeur sur une info animal dans le fichier");
             exit(1);
         }
-        // variable intermédiaire pour stocker l'espèce
+        // Variable intermédiaire pour stocker l'espèce
         tab[i].espece=tmp;
 
-        //alloue dynamiquement l'espace nécessaire pour stocker sa description
-        while(fgetc(fichier)!=';'){ // compte le nb de caractères dans la description
+        // Alloue dynamiquement l'espace nécessaire pour stocker sa description
+        test=fgetc(fichier);
+        while(test !='\n' && test != EOF){ // compte le nb de lettres
+            test=fgetc(fichier);// compte le nb de caractères dans la description
             compteur++;
         }
         tab[i].description=NULL;
-        tab[i].description=malloc(compteur*sizeof(char)+1);
+        tab[i].description=malloc(compteur*sizeof(char));
         if(tab[i].description==NULL){
             printf("Allocation échouée\n");
             exit(1);
         }
-        fseek(fichier,-(compteur+1),SEEK_CUR);//curseur replacé devant le premier caractère de la description
+        fseek(fichier,-(compteur+1),SEEK_CUR);// Curseur replacé devant le premier caractère de la description
 
         // sa description
-        fgets(tab[i].description,compteur+1,fichier);
+        fgets(tab[i].description,compteur,fichier);
         compteur=0;
 
         fseek(fichier,1,SEEK_CUR);
-        nb_animaux++;//incrémentation du nb d'animaux
+        nb_animaux++;// Incrémentation du nb d'animaux
         i++;
 
     }
