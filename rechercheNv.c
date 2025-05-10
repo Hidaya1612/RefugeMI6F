@@ -88,7 +88,7 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { // Rec
     int j = 0;
     for (int i = 0; i < *nb_animaux; i++) { // Remplit le tableau avec les animaux correspondants
         int age = 2025 - animaux[i].annee_de_naissance;
-        if ((ageType == 1 && age < 2) || (ageType==2 && (age>=2 && age<=10))|| (ageType == 2 && age > 10)) {
+        if ((ageType == 1 && age < 2) || (ageType==2 && (age>=2 && age<=10))|| (ageType == 3 && age > 10)) {
             tab3[j] = animaux[i];
             j++;
         }
@@ -163,8 +163,8 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
             case 3:
                 printf("Entrez le type d'age (1: Jeune <2 ans, 2: Age moyen (entre 2ans et 10 ans), 3: Senior >10 ans) : ");
                 scan("%d", &ageType);
-                while(ageType != 1 && ageType != 2){
-                	printf("mauvaise saisie du choix.\n");
+                while(ageType != 1 && ageType != 3 && ageType != 2){
+                	printf("Mauvaise saisie du choix.\n");
                     printf("Veuillez ressaisir votre choix.\n");
                 	scan("%d", &ageType);
                 }
@@ -181,11 +181,11 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
     }
     else {
         int continuer=0;
-        printf("voulez vous rechercher a partir d'un autre critere\n");
-        printf("appuyez sur 1 si oui, 0 sinon\n");
+        printf("Voulez-vous approfondir votre recherche a partir d'un autre critere\n");
+        printf("Appuyez sur 1 si oui, 0 sinon\n");
         scan("%d",&continuer);
         while(continuer != 1 && continuer !=0){
-                	printf("mauvaise saisie du choix.\n");
+                	printf("Mauvaise saisie du choix.\n");
                 	scan("%d",&continuer);
                 }
 
@@ -197,3 +197,4 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
     }
 
 }
+
