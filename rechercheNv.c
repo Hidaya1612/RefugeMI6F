@@ -134,8 +134,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
 	printf("3. Type d'age\n");
 	scan("%d",&choix);
 	while( choix<1 || choix>3){
-       printf("Mauvaise saisie du choix\n");
-       printf("Veuillez ressaisir votre choix.\n");
+       printf("Mauvaise saisie du choix.\nVeuillez ressaisir votre choix.\n");
         scan("%d",&choix);
     }
     // Effectue la recherche en fonction du critère choisi
@@ -152,8 +151,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 printf("Entrez l'espece (0: CHIEN, 1: CHAT, 2: HAMSTER, 3: AUTRUCHE) : ");
                 scan("%d", &espece);
                 while(espece<0 || espece>3){
-                	printf("Mauvaise saisie du numero d'espece.\n");
-                    printf("Veuillez ressaisir le numero de l'espece de l'animal.\n");
+                	printf("Mauvaise saisie du numero d'espece.\nVeuillez ressaisir le numero de l'espece de l'animal.\n");
                 	scan("%d", &espece);
                 }
                 tab=rechercheparEspece(espece,tab, &nb_animaux);
@@ -177,15 +175,15 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
         }
     // Si aucun animal n'est trouvé, affiche un message
     if (nb_animaux==0) {
-        printf("Aucun animal ne correspond a votre recherche\n");
+        printf("Aucun animal ne correspond a votre recherche.\n");
     }
     else {
         int continuer=0;
-        printf("Voulez-vous approfondir votre recherche a partir d'un autre critere\n");
-        printf("Appuyez sur 1 si oui, 0 sinon\n");
+        printf("Voulez-vous approfondir votre recherche a partir d'un autre critere.\n");
+        printf("Appuyez sur 1 si oui, 0 sinon.\n");
         scan("%d",&continuer);
         while(continuer != 1 && continuer !=0){
-                	printf("Mauvaise saisie du choix.\n");
+                	printf("Mauvaise saisie du choix.\nVeuillez saisir une valeur correcte.\n ");
                 	scan("%d",&continuer);
                 }
 
@@ -197,4 +195,3 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
     }
 
 }
-
