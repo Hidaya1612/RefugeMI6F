@@ -143,7 +143,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
 
 	//Ecriture du nouvel animal dans le fichier
-        fprintf(fichier,"%d %s %d %d %f",tab[nb_animaux].num_identification,tab[nb_animaux].nom,tab[nb_animaux].espece,tab[nb_animaux].annee_de_naissance,tab[nb_animaux].poids);
+        fprintf(fichier,"%d %s %d %d %.3f",tab[nb_animaux].num_identification,tab[nb_animaux].nom,tab[nb_animaux].espece,tab[nb_animaux].annee_de_naissance,tab[nb_animaux].poids);
         if (tab[nb_animaux].description != NULL){
             fprintf(fichier," %s;\n",tab[nb_animaux].description);
         }
