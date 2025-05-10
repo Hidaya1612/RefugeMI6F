@@ -103,16 +103,16 @@ void afficheAnimaux(Animal animal[], int nb_animaux) { //affiche toutes les info
         char especeNom[100];
         switch (animal[i].espece) {
             case 0:
-            printf("Nom: %s, ID: %d, Espece: Chien, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            printf("Nom: %s, ID: %d, Espece: Chien, Annee de naissance: %d, Poids: %.2f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
             break;
             case 1:
-            printf("Nom: %s, ID: %d, Espece: Chat, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            printf("Nom: %s, ID: %d, Espece: Chat, Annee de naissance: %d, Poids: %.2f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
             break;
             case 2:
-            printf("Nom: %s, ID: %d, Espece: Hamster, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            printf("Nom: %s, ID: %d, Espece: Hamster, Annee de naissance: %d, Poids: %.3f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
             break;
             case 3:
-            printf("Nom: %s, ID: %d, Espece: Autruche, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            printf("Nom: %s, ID: %d, Espece: Autruche, Annee de naissance: %d, Poids: %.2f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
             break;
             default:
                 printf("Espece incorrecte\n");
