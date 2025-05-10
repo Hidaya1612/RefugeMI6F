@@ -77,7 +77,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
 
         tab[nb_animaux].nom=NULL;
-        tab[nb_animaux].nom=malloc(strlen(temporaire_nom)*(sizeof(char)+1));
+        tab[nb_animaux].nom=malloc((strlen(temporaire_nom)+1)*sizeof(char));
         if(tab[nb_animaux].nom==NULL){
             printf("Allocation réalisée pour le prénom de l'animal échouée\n");
             exit(1);
@@ -123,7 +123,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         if (choix_descriptif==1){
             printf("Veuillez saisir une description sur l'animal :\n ");
             scan("%98[^\n]",temporaire_descriptif);
-            tab[nb_animaux].description=malloc(strlen(temporaire_descriptif)*sizeof(char)+1);
+            tab[nb_animaux].description=malloc((strlen(temporaire_descriptif)+1)*sizeof(char));
             if(tab[nb_animaux].description==NULL){
                 printf("Allocation réalisée pour le prénom de l'animal échouée\n");
                 exit(1);
