@@ -47,7 +47,7 @@ int stockage_animaux(Animal* tab, int taille){
             compteur++;
         }
         tab[i].nom=NULL;
-        tab[i].nom=malloc(compteur*sizeof(char)+1);
+        tab[i].nom=malloc((compteur+1)*sizeof(char));
         if(tab[i].nom==NULL){
             printf("Allocation échouée\n");
             exit(1);
