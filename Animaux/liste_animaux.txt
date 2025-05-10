@@ -1,39 +1,39 @@
-1 Max 0 2015 28.3 Chien tres joueur
-2 Charlie 0 2017 25.9 Court plus vite que l'eclair
-3 Mars 1 2009 3.21
-4 Lily 2 2023 0.11 Petite mais tres courageuse
-5 Oscar 3 1986 122.9 Adore l'eau, incroyable
-6 Nestor 2 2022 0.023
-7 Jack 0 2021 30.2
-8 Stella 3 1997 128.3 Très curieuse
-9 Noisette 2 2022 0.032 Ronge tout sauf ses jouets
-10 Olive 3 2002 146.5
-11 Rocky 0 2024 22.73 Sauter est son super-pouvoir
-12 Billy 2 2021 0.025 Toujours en quete d'aventure
-13 Olga 2 2021 0.12
-14 Boomer 0 2018 38.0 Grand fan de longues siestes
-15 Rouky 1 2010 3.89 Ronronne des qu'on le regarde
-16 Lola 3 1985 111.2
-17 Sunny 1 2013 4.22 Dort comme un vrai roi
-18 Rose 2 2023 0.041 Regard trop craquant
-19 Hector 3 1988 99.7
-20 Prince 0 2022 36.44
-21 Sacha 1 2014 5.04
-22 Mimi 2 2023 0.034
-23 Cannelle 1 2016 4.95 Grimpe au rideau pour jouer
-24 Zara 3 2008 139.0 Tellement douce et affectueuse
-25 Potter 0 2019 39.12
-26 Bella 2 2024 0.032
-27 Neige 2 2022 0.024
-28 Ruby 0 2017 41.27 Tres sociable avec les autres
-29 Coco 2 2021 0.12
-30 Caramel 1 2020 2.97 Maitre des cachettes secretes
-31 Rosa 0 2015 23.4
-32 Pearl 1 2013 3.12
-33 Cookie 0 2023 36.0 Defend sa balle comme un pro
-34 Vanille 2 2022 0.029
-35 Snoopy 0 2019 21.9
-36 Lucky 1 2019 2.7 Attention voleur de croquettes
-37 Flocon 2 2021 0.109
-38 Milou 0 2017 32.1
-39 Chanel 1 2016 3.8 Trop mignonne avec sa moustache
+1 Max 0 2015 28.3 Chien tres joueur;
+2 Charlie 0 2017 25.9 Court plus vite que l'eclair;
+3 Mars 1 2009 3.21;
+4 Lily 2 2023 0.11 Petite mais tres courageuse;
+5 Oscar 3 1986 122.9 Adore l'eau, incroyable;
+6 Nestor 2 2022 0.023;
+7 Jack 0 2021 30.2;
+8 Stella 3 1997 128.3 Très curieuse;
+9 Noisette 2 2022 0.032 Ronge tout sauf ses jouets;
+10 Olive 3 2002 146.5;
+11 Rocky 0 2024 22.73 Sauter est son super-pouvoir;
+12 Billy 2 2021 0.025 Toujours en quete d'aventure;
+13 Olga 2 2021 0.12;
+14 Boomer 0 2018 38.0 Grand fan de longues siestes;
+15 Rouky 1 2010 3.89 Ronronne des qu'on le regarde;
+16 Lola 3 1985 111.2;
+17 Sunny 1 2013 4.22 Dort comme un vrai roi;
+18 Rose 2 2023 0.041 Regard trop craquant;
+19 Hector 3 1988 99.7;
+20 Prince 0 2022 36.44;
+21 Sacha 1 2014 5.04;
+22 Mimi 2 2023 0.034;
+23 Cannelle 1 2016 4.95 Grimpe au rideau pour jouer;
+24 Zara 3 2008 139.0 Tellement douce et affectueuse;
+25 Potter 0 2019 39.12;
+26 Bella 2 2024 0.032;
+27 Neige 2 2022 0.024;
+28 Ruby 0 2017 41.27 Tres sociable avec les autres;
+29 Coco 2 2021 0.12;
+30 Caramel 1 2020 2.97 Maitre des cachettes secretes;
+31 Rosa 0 2015 23.4;
+32 Pearl 1 2013 3.12;
+33 Cookie 0 2023 36.0 Defend sa balle comme un pro;
+34 Vanille 2 2022 0.029;
+35 Snoopy 0 2019 21.9;
+36 Lucky 1 2019 2.7 Attention voleur de croquettes;
+37 Flocon 2 2021 0.109;
+38 Milou 0 2017 32.1;
+39 Chanel 1 2016 3.8 Trop mignonne avec sa moustache;
