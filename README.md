@@ -19,9 +19,13 @@ ORGANISATION DU PROJET
 Voici les fichiers principaux :
 
 Un dossier Animaux contenant un fichier texte liste_animaux.txt (base de données des animaux du refuge).
+
 refuge.h : contient les structures et les prototypes (de fonctions et de procédures).
+
 makefile : permet de compiler rapidement le programme.
+
 menu.c : gère le menu principal et la navigation utilisateur et permet de choisir parmis les différents choix proposés.
+
 main.c : point d’entrée du programme.
 
 fonction_stockage.c : lit le fichier liste_animaux.txt, remplit le tableau d’animaux et le sauvegarde.
@@ -34,7 +38,5 @@ fonction_variantes.c : 2 fonctions sont présentes : nettoyage : indique combien
                                                     inventaire âge : affiche le nombre total d'animaux et les répartis par quartile pour ensuite en afficher le nombre.
 
 rechercheNv.c : permet de rechercher un ou plusieurs animaux selon 3 différents critères (nom, espèce et type d'âge).
-
-Nous avons aussi créé un fichier Makefile qui permet de compiler plus facilement notre programme.
 
 
