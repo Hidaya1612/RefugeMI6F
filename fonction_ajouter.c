@@ -61,9 +61,15 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         char temporaire_descriptif[100];
         int choix_descriptif;
         int tmp=-1;
-	// Génération automatique de l'identifiant
-        tab[nb_animaux].num_identification=tab[nb_animaux-1].num_identification+1;
 
+    	// S'il n'y a pas d'animaux dans le refuge
+    	if (nb_animaux==0) {
+    		tab[nb_animaux].num_identification=1;
+    	}
+    	else {
+    		// Génération automatique de l'identifiant
+    		tab[nb_animaux].num_identification=tab[nb_animaux-1].num_identification+1;
+    	}
         // Saisie des informations de l'animal
 	//----Nom----
         printf("Veuillez saisir le nom de l'animal : \n");
@@ -99,8 +105,8 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 	//----Poids----
         printf("Veuillez saisir le poids de l'animal: \n");
 	scan("%f", &tab[nb_animaux].poids);
-	while(tab[nb_animaux].poids <= 0 || tab[nb_animaux].poids > 150){
-		printf("Erreur de la saisie du poids! \n");
+	while(tab[nb_animaux].poids <0.01 || tab[nb_animaux].poids > 150){
+		printf("Erreur de la saisie du poids! \nVeuillez ressaisir le poids de l'animal: \n");
 		scan("%f", &tab[nb_animaux].poids);
 	}
 
@@ -159,3 +165,4 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
     
     
 }
+
