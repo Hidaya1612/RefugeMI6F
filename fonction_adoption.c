@@ -64,7 +64,7 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){ //supprime un a
             //écrit les infos de tous les animaux dans le fichier sauf ceux de l'animal à supprimer (id à 0)
             for (int i=0;i<nb_animaux;i++){
                 if (tab[i].num_identification!=0){
-                    fprintf(fichier,"%d %s %d %d %f",tab[i].num_identification,tab[i].nom,tab[i].espece,tab[i].annee_de_naissance,tab[i].poids);
+                    fprintf(fichier,"%d %s %d %d %.3f",tab[i].num_identification,tab[i].nom,tab[i].espece,tab[i].annee_de_naissance,tab[i].poids);
                     //vérifie si la description existe
                     if (strlen(tab[i].description)!=0){
                         fprintf(fichier," %s;\n",tab[i].description);
