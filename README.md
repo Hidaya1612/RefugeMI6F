@@ -7,6 +7,12 @@ Ce refuge peut accueillir jusqu’à 50 animaux. Chaque animal est caractérisé
 
 
 
+
+
+
+
+
+
 FONCTIONNALITÉS 
 
 À travers le menu, on peut :
@@ -22,6 +28,13 @@ Afficher l’inventaire : affiche le nombre total d'animaux et ensuite une répa
 Prévoir le temps de nettoyage : calcule le temps total nécessaire pour entretenir les enclos des animaux, selon leur espèce.
 
 Quitter : Sortie du programme.
+
+
+
+
+
+
+
 
 
 
