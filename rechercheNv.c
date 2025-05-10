@@ -1,44 +1,44 @@
 #include"refuge.h"
 
-Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) { //fonction qui recherche un animal à partir de son nom
+Animal* rechercheparNom(char* nomRecherche, Animal animaux[], int* nb_animaux) { // Recherche un animal à partir de son nom
     if (nomRecherche==NULL || nb_animaux==NULL || *nb_animaux<=0) {
         return NULL;
     }
 
-    int cmp=0;
-    for (int i = 0; i<*nb_animaux; i++) {
+    int cmp=0; // Compteur pour le nombre d'animaux trouvés
+    for (int i = 0; i<*nb_animaux; i++) { // Parcourt le tableau d'animaux pour comparer les noms
         if (strcmp(animaux[i].nom, nomRecherche) == 0) {
             cmp++;
         }
     }
-    if (cmp==0) {
+    if (cmp==0) { // Si aucun animal n'est trouvé avec le nom recherché
         *nb_animaux=0;
         return NULL;
     }
-
+    // Alloue dynamiquement un tableau pour stocker les animaux trouvés
     Animal* tab1=malloc(cmp*sizeof(Animal));
     if (tab1 == NULL) {
         exit(1);
     }
     int j=0;
-    for (int i = 0; i <*nb_animaux; i++) {
+    for (int i = 0; i <*nb_animaux; i++) { // Remplit le tableau avec les animaux correspondants
         if (strcmp(animaux[i].nom, nomRecherche) == 0) {
             tab1[j]=animaux[i];
             j++;
         }
     }
-    *nb_animaux = cmp;
+    *nb_animaux = cmp; // Met à jour le nombre d'animaux trouvés
     return tab1;
 }
 
 
-Animal* rechercheparEspece(Espece s, Animal animaux[], int* nb_animaux) { //fonction qui recherche un animal à partir de son espèce
+Animal* rechercheparEspece(Espece s, Animal animaux[], int* nb_animaux) { // Recherche un animal à partir de son espèce
     if (nb_animaux==NULL) {
         exit(0);
     }
 
     int cmp=0;
-    for (int i = 0; i < *nb_animaux; i++) {
+    for (int i = 0; i < *nb_animaux; i++) { // Parcourt le tableau pour comparer les espèces
         if (animaux[i].espece == s) {
             cmp++;
         }
@@ -47,29 +47,30 @@ Animal* rechercheparEspece(Espece s, Animal animaux[], int* nb_animaux) { //fonc
         *nb_animaux=0;
         return NULL;
     }
+    // Alloue dynamiquement un tableau pour stocker les animaux trouvés
     Animal* tab2=malloc(cmp*sizeof(Animal));
     if (tab2 == NULL) {
         exit(1);
     }
     int j=0;
-    for (int i = 0; i < *nb_animaux; i++) {
+    for (int i = 0; i < *nb_animaux; i++) { // Remplit le tableau avec les animaux correspondants
         if (animaux[i].espece == s) {
             tab2[j]=animaux[i];
             j++;
         }
     }
-    *nb_animaux=cmp;
+    *nb_animaux=cmp; // Met à jour le nombre d'animaux trouvés
     return tab2;
 
 }
 
-Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { ////fonction qui recherche un animal à partir de son âge
+Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { // Recherche un animal à partir de son âge
     if (nb_animaux==NULL) {
         exit(0);
     }
     int cmp = 0;
     for (int i = 0; i < *nb_animaux; i++) {
-        int age = 2025 - animaux[i].annee_de_naissance;
+        int age = 2025 - animaux[i].annee_de_naissance;  // Calcule l'âge de l'animal
         if ((ageType == 1 && age < 2) || (ageType==2 && (age>=2 && age<=10))|| (ageType == 3 && age > 10)) {
             cmp++;
         }
@@ -78,14 +79,14 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { ////fo
         *nb_animaux = 0;
         return NULL;
     }
-
+    // Alloue dynamiquement un tableau pour stocker les animaux trouvés
     Animal* tab3 = malloc(cmp * sizeof(Animal));
     if (tab3 == NULL) {
         exit(1);
     }
 
     int j = 0;
-    for (int i = 0; i < *nb_animaux; i++) {
+    for (int i = 0; i < *nb_animaux; i++) { // Remplit le tableau avec les animaux correspondants
         int age = 2025 - animaux[i].annee_de_naissance;
         if ((ageType == 1 && age < 2) || (ageType==2 && (age>=2 && age<=10))|| (ageType == 2 && age > 10)) {
             tab3[j] = animaux[i];
@@ -97,8 +98,25 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { ////fo
 }
 
 void afficheAnimaux(Animal animal[], int nb_animaux) { //affiche toutes les informations de l'animal
+
     for (int i = 0; i < nb_animaux; i++) {
-        printf("Nom: %s, ID: %d, Espece: %d, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].espece, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+        char especeNom[100];
+        switch (animal[i].espece) {
+            case 0:
+            printf("Nom: %s, ID: %d, Espece: Chien, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            break;
+            case 1:
+            printf("Nom: %s, ID: %d, Espece: Chat, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            break;
+            case 2:
+            printf("Nom: %s, ID: %d, Espece: Hamster, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            break;
+            case 3:
+            printf("Nom: %s, ID: %d, Espece: Autruche, Annee de naissance: %d, Poids: %f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
+            break;
+            default:
+                printf("Espece incorrecte\n");
+        }
     }
 }
 
@@ -109,7 +127,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
 	char nom[100];
 	int espece=0;
 	int choix=0;
-
+    // Demande à l'utilisateur de choisir un critère
 	printf("A partir de quel critere voulez vous rechercher l'animal:\n");
 	printf("1. Nom\n");
 	printf("2. Espece\n");
@@ -120,18 +138,18 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
        printf("Veuillez ressaisir votre choix.\n");
         scan("%d",&choix);
     }
-
+    // Effectue la recherche en fonction du critère choisi
         switch (choix) {
             case 1:
 
                 printf("Entrez le nom : ");
-                scan("%98s",&nom);
-                corrigeNom(nom);
+                scan("%98s",&nom); // Limite la saisie à 98 caractères pour éviter le débordement
+                corrigeNom(nom); // Corrige le format du nom si nécessaire
                 tab=rechercheparNom(nom,tab, &nb_animaux);
                 afficheAnimaux(tab, nb_animaux);
             break;
             case 2:
-                printf("Entrez l'espece (0: DOG, 1: CAT, 2: HAMSTER, 3: OSTRICH) : ");
+                printf("Entrez l'espece (0: CHIEN, 1: CHAT, 2: HAMSTER, 3: AUTRUCHE) : ");
                 scan("%d", &espece);
                 while(espece<0 || espece>3){
                 	printf("Mauvaise saisie du numero d'espece.\n");
@@ -157,6 +175,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
             default:
                 printf("Choix invalide.\n");
         }
+    // Si aucun animal n'est trouvé, affiche un message
     if (nb_animaux==0) {
         printf("Aucun animal ne correspond a votre recherche\n");
     }
@@ -170,7 +189,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 	scan("%d",&continuer);
                 }
 
-
+        // Relance la recherche si l'utilisateur le souhaite
         if (continuer == 1) {
             rechercherAnimaux(tab, nb_animaux);
         }
