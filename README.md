@@ -35,7 +35,9 @@ fonction_ajouter.c : ajoute un nouvel animal au tableau et au fichier texte.
 fonction_adoption.c : supprime un animal du fichier à partir de son ID.
 
 fonction_variantes.c : 2 fonctions sont présentes : 
+
 nettoyage : indique combien de temps de nettoyage sera nécessaire
+
 inventaire âge : affiche le nombre total d'animaux et les répartis par quartile pour ensuite en afficher le nombre.
 
 rechercheNv.c : permet de rechercher un ou plusieurs animaux selon 3 différents critères (nom, espèce et type d'âge).
