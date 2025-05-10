@@ -148,7 +148,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 afficheAnimaux(tab, nb_animaux);
             break;
             case 2:
-                printf("Entrez l'espece (0: CHIEN, 1: CHAT, 2: HAMSTER, 3: AUTRUCHE) : ");
+                printf("Entrez le numero de l'espece desiree:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
                 scan("%d", &espece);
                 while(espece<0 || espece>3){
                 	printf("Mauvaise saisie du numero d'espece.\nVeuillez ressaisir le numero de l'espece de l'animal:\n");
@@ -159,7 +159,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
 
                 break;
             case 3:
-                printf("Entrez le type d'age\n(1: Jeune <2 ans, 2: Age moyen (entre 2ans et 10 ans), 3: Senior >10 ans) :\n ");
+                printf("Entrez le type d'age:\n1: Jeune <2 ans\n2: Age moyen (entre 2ans et 10 ans)\n3: Senior >10 ans:\n ");
                 scan("%d", &ageType);
                 while(ageType <1 || ageType>3){
                 	printf("Mauvaise saisie du choix.\n");
