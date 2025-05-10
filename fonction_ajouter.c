@@ -4,7 +4,7 @@ void scan(char* mode, void* input){ //vérifie que les retours du scan soient bi
     int a=scanf(mode, input);
     while(getchar()!='\n'){};
     if(a<=0){
-    	printf("Erreur scanf, entrer une valeur correcte.\n");
+    	printf("Erreur, entrez une valeur correcte.\n");
         scan(mode,input); // Relance la saisie en cas d’erreur
     }
 }
@@ -46,7 +46,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 
     //Vérification des paramètres
     if (tab == NULL || pnb_animaux == NULL || taille<=0 || nb_animaux<0 || nb_animaux>taille){
-        printf("allocation échoué ou taille/nombre animaux incohérente\n");
+        printf("Allocation échouée ou taille/nombre animaux incohérente.\n");
         exit(1);
     }
 
@@ -125,7 +125,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
             scan("%98[^\n]",temporaire_descriptif);
             tab[nb_animaux].description=malloc((strlen(temporaire_descriptif)+1)*sizeof(char));
             if(tab[nb_animaux].description==NULL){
-                printf("Allocation réalisée pour le prénom de l'animal échouée\n");
+                printf("Allocation réalisée pour le prénom de l'animal échouée.\n");
                 exit(1);
             }
             tab[nb_animaux].description=temporaire_descriptif;
@@ -138,7 +138,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         FILE* fichier=NULL;
         fichier=fopen("Animaux/liste_animaux.txt","a+");
         if (fichier==NULL ){
-            printf("Ouverture du fichier impossible\n");
+            printf("Ouverture du fichier impossible.\n");
             exit(1);
         }
 
@@ -152,7 +152,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
         rewind(fichier);
         fclose(fichier);
-        *pnb_animaux=stockage_animaux(tab,taille); //Mise a jour du nombre d'animaux
+        *pnb_animaux=stockage_animaux(tab,taille); //Mise 1a jour du nombre d'animaux
 	printf("L'animal %s a bien ete ajoute au refuge.\n", tab[nb_animaux].nom);
 	afficherMenu(tab, TAILLE, *pnb_animaux);
     }
