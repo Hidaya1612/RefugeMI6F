@@ -14,7 +14,7 @@ void afficherMenu(Animal* tab_animaux, int taille, int nb_animaux){
 
     printf("Votre choix : ");//demande à l'utilsateur l'action qu'il souhaite effectuer
     scan("%d", &choix);
-    while(choix < 0 || choix > 7){
+    while(choix < 1 || choix > 7){
         printf("Mauvaise saisie du choix.\n");
         printf("Ressaisir votre choix :\n");
         scan("%d", &choix);
