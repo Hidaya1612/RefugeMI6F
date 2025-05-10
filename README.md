@@ -35,6 +35,6 @@ fonction_variantes.c : 2 fonctions sont présentes : nettoyage : indique combien
 
 rechercheNv.c : permet de rechercher un ou plusieurs animaux selon 3 différents critères (nom, espèce et type d'âge).
 
-Nous avons aussi crée un fichier Makefile qui permet de compiler plus facilement notre programme.
+Nous avons aussi créé un fichier Makefile qui permet de compiler plus facilement notre programme.
 
 
