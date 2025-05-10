@@ -9,8 +9,8 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
 
   //Vérification des paramètres
   if (tab == NULL ||  taille<=0 || nb_animaux<0 || nb_animaux>TAILLE){
-    printf("allocation échoué ou taille/nombre animaux incohérente\n");
-    exit(1);
+    printf("Allocation echouee ou taille/nombre animaux incohérent(e)\n");
+    afficherMenu(tab, TAILLE, nb_animaux);
   }
 
   //Process
@@ -85,7 +85,7 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
     //Vérification des paramètres
     if (tab == NULL || nb_animaux <= 0) {
         printf("Erreur.\n");
-        exit(2);
+        afficherMenu(tab, TAILLE, nb_animaux);
     }
   
     //Initialisation des paramètres
