@@ -55,29 +55,32 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
   afficherMenu(tab, TAILLE, nb_animaux);
 }
 
+// Procédure pour trouver les âges minimum et maximum des animaux
 void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
     if (tab == NULL || nb_animaux <= 0 || pMin == NULL || pMax == NULL) {
         exit (35);
     }
+    // Initialisation des âges minimum et maximum avec le premier animal
     int minAge = 2025 - tab[0].annee_de_naissance;
     int maxAge = minAge;
 
 
-
+    // Parcourt le tableau pour trouver les âges minimum et maximum
     for(int i=0; i<nb_animaux; i++){
-        int age = 2025 - tab[i].annee_de_naissance;
-        if (minAge > age){
+        int age = 2025 - tab[i].annee_de_naissance; // Calcul de l'âge de l'animal
+        if (minAge > age){ // Mise à jour de l'âge minimum si un âge plus petit est trouvé
             minAge = age;
         }
-        if (maxAge < age) {
+        if (maxAge < age) { // Mise a jour age max
             maxAge = age;
         }
     }
+    // Stockage des résultats dans les paramètres de sortie
     *pMin = minAge;
     *pMax = maxAge;
 }
 
-
+// Procédure pour calculer et afficher la répartition des âges des animaux en quartiles
 void inv_age_asc(Animal* tab, int nb_animaux) {
     //Vérification des paramètres
     if (tab == NULL || nb_animaux <= 0) {
@@ -85,16 +88,18 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
         exit(2);
     }
   
-    //Initialisation des champs
+    //Initialisation des paramètres
     int pMin=0;
     int pMax=0;
-    extremums(tab, nb_animaux, &pMin, &pMax);
-    int moyenne = (pMax - pMin) / 4;
+    extremums(tab, nb_animaux, &pMin, &pMax); // Appel de la fonction pour obtenir les âges max et min
+    int moyenne = (pMax - pMin) / 4; // Calcul de l'intervalle pour chaque quartile
     int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
 
+    // Parcourt le tableau pour classer les animaux dans les quartiles
     for (int i = 0; i < nb_animaux; i++) {
         int age = 2025 - tab[i].annee_de_naissance;
 
+        // Classification de l'animal dans le quartile correspondant
         if (age >= pMin && age < pMin + moyenne) {
             quartile1++;
         }
@@ -109,6 +114,7 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
         }
     }
 
+    // Affichage des résultats
     printf("Nombre total d'animaux : %d\n", nb_animaux);
     printf("Quartile 1 (%d - %d ans) : %d animaux\n", pMin, pMin + moyenne, quartile1);
     printf("Quartile 2 (%d - %d ans) : %d animaux\n", pMin + moyenne, pMin + 2 * moyenne, quartile2);
@@ -116,3 +122,4 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
     printf("Quartile 4 (%d - %d ans) : %d animaux\n", pMin + 3 * moyenne,pMax, quartile4);
     afficherMenu(tab, TAILLE, nb_animaux);
 }
+
