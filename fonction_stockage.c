@@ -82,7 +82,6 @@ int stockage_animaux(Animal* tab, int taille){
 
         // sa description
         fgets(tab[i].description,compteur+1,fichier);
-        printf("%s\n", tab[i].description);
         compteur=0;
 
         fseek(fichier,1,SEEK_CUR);
