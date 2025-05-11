@@ -148,7 +148,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 tab=rechercheparNom(nom,tab, &nb_animaux);
             break;
             case 2:
-                printf("Entrez le numero corrspondant a l'espece que vous recherchez:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
+                printf("Entrez le numero correspondant a l'espece que vous recherchez:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
                 scan("%d", &espece);
                 while(espece<0 || espece>3){
                 	printf("Mauvaise saisie du numero d'espece.\nVeuillez ressaisir un bon numero:\n");
