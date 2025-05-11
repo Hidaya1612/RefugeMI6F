@@ -158,7 +158,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
         }
         rewind(fichier);
         fclose(fichier);
-        *pnb_animaux=stockage_animaux(tab,taille); //Mise 1a jour du nombre d'animaux
+        *pnb_animaux=stockage_animaux(tab,taille); //Mise à jour du nombre d'animaux
 	printf("L'animal %s a bien ete ajoute au refuge.\n", tab[nb_animaux].nom);
 	afficherMenu(tab, TAILLE, *pnb_animaux);
     }
