@@ -60,17 +60,20 @@ int stockage_animaux(Animal* tab, int taille){
             printf("Mauvaise valeur sur une info animal dans le fichier");
             exit(1);
         }
+            
         // Variable intermédiaire pour stocker l'espèce
         tab[i].espece=tmp;
-        fseek(fichier,-1,SEEK_CUR); // curseur replacé devant le premier caractère de la description
+            
+        fseek(fichier,-1,SEEK_CUR); // curseur replacé sur la bonne ligne
+            
         // Alloue dynamiquement l'espace nécessaire pour stocker sa description
         test=fgetc(fichier);
-        while(test !='\n' && test != EOF){ // compte le nb de lettres
-            test=fgetc(fichier);// compte le nb de caractères dans la description
+        while(test !='\n' && test != EOF){ 
+            test=fgetc(fichier);
             if(test=='\n' || test == EOF){
                 break;
             }
-            compteur++;
+            compteur++; // compte le nb de caractères dans la description
         }
         tab[i].description=NULL;
         tab[i].description=malloc((compteur+1)*sizeof(char));
