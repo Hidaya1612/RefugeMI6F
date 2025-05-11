@@ -13,7 +13,7 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
     afficherMenu(tab, TAILLE, nb_animaux);
   }
   
-  for (int i=0; i<nb_animaux; i++){ // parcours du tableau
+  for (int i=0; i<nb_animaux; i++){ // parcourt le tableau
     if (tab[i].num_identification!=0){
       switch(tab[i].espece){
         case 0: // si chien
