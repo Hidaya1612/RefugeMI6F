@@ -87,47 +87,47 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
         afficherMenu(tab, TAILLE, nb_animaux);
     }
     else{
-    //Initialisation des paramètres
-    int pMin=0;
-    int pMax=0;
-    extremums(tab, nb_animaux, &pMin, &pMax); // Appel de la fonction pour obtenir les âges max et min
-    int moyenne = (pMax - pMin) / 4; // Calcul de l'intervalle pour chaque quartile
-    int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
+      //Initialisation des paramètres
+      int pMin=0;
+      int pMax=0;
+      extremums(tab, nb_animaux, &pMin, &pMax); // Appel de la fonction pour obtenir les âges max et min
+      int moyenne = (pMax - pMin) / 4; // Calcul de l'intervalle pour chaque quartile
+      int quartile1 = 0, quartile2 = 0, quartile3 = 0, quartile4 = 0;
 
-    // Parcourt le tableau pour classer les animaux dans les quartiles
-    for (int i = 0; i < nb_animaux; i++) {
-        int age = 2025 - tab[i].annee_de_naissance;
+      // Parcourt le tableau pour classer les animaux dans les quartiles
+      for (int i = 0; i < nb_animaux; i++) {
+          int age = 2025 - tab[i].annee_de_naissance;
 
-        // Classification de l'animal dans le quartile correspondant
-        if (age >= pMin && age <= pMin + moyenne) {
-            quartile1++;
-        }
-        else if (age > pMin + moyenne && age <= pMin + 2 * moyenne) {
-            quartile2++;
-        }
-        else if (age > pMin + 2 * moyenne && age <= pMin + 3 * moyenne) {
-            quartile3++;
-        }
-        else if (age > pMin + 3 * moyenne && age <= pMax) {
-            quartile4++;
-        }
-    }
+          // Classification de l'animal dans le quartile correspondant
+          if (age >= pMin && age <= pMin + moyenne) {
+              quartile1++;
+          }
+          else if (age > pMin + moyenne && age <= pMin + 2 * moyenne) {
+              quartile2++;
+          }
+          else if (age > pMin + 2 * moyenne && age <= pMin + 3 * moyenne) {
+              quartile3++;
+          }
+          else if (age > pMin + 3 * moyenne && age <= pMax) {
+              quartile4++;
+          }
+      }
 
-    // Affichage des résultats
-    printf("Nombre total d'animaux : %d\n", nb_animaux);
-    if (quartile1 !=0) {
-        printf("Moins de %d ans : %d animaux\n", pMin + moyenne, quartile1);
-    }
-    if (quartile2 != 0) {
-        printf("Entre %d et %d ans : %d animaux\n", pMin + moyenne, pMin + 2 * moyenne, quartile2);
-    }
-    if (quartile3 != 0) {
-        printf("Entre %d et %d ans : %d animaux\n", pMin + 2 * moyenne, pMin + 3 * moyenne, quartile3);
-    }
-    if (quartile4 != 0) {
-        printf("Plus de %d ans : %d animaux\n", pMin + 3 * moyenne, quartile4);
-    }
-    afficherMenu(tab, TAILLE, nb_animaux);
+      // Affichage des résultats
+      printf("Nombre total d'animaux : %d\n", nb_animaux);
+      if (quartile1 !=0) {
+          printf("Moins de %d ans : %d animaux\n", pMin + moyenne, quartile1);
+      }
+      if (quartile2 != 0) {
+          printf("Entre %d et %d ans : %d animaux\n", pMin + moyenne, pMin + 2 * moyenne, quartile2);
+      }
+      if (quartile3 != 0) {
+          printf("Entre %d et %d ans : %d animaux\n", pMin + 2 * moyenne, pMin + 3 * moyenne, quartile3);
+      }
+      if (quartile4 != 0) {
+          printf("Plus de %d ans : %d animaux\n", pMin + 3 * moyenne, quartile4);
+      }
+      afficherMenu(tab, TAILLE, nb_animaux);
     }
 }
 
