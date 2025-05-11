@@ -146,7 +146,6 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 scan("%98s",&nom); // Limite la saisie à 98 caractères pour éviter le débordement
                 corrigeNom(nom); // Corrige le format du nom si nécessaire
                 tab=rechercheparNom(nom,tab, &nb_animaux);
-                afficheAnimaux(tab, nb_animaux);
             break;
             case 2:
                 printf("Entrez le numero de l'espece desiree:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
@@ -156,8 +155,6 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 	scan("%d", &espece);
                 }
                 tab=rechercheparEspece(espece,tab, &nb_animaux);
-                afficheAnimaux(tab, nb_animaux);
-
                 break;
             case 3:
                 printf("Entrez le type d'age:\n1: Jeune <2 ans\n2: Age moyen (entre 2ans et 10 ans)\n3: Senior >10 ans:\n ");
@@ -168,7 +165,6 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 	scan("%d", &ageType);
                 }
                 tab=rechercheparAge(ageType, tab, &nb_animaux);
-                afficheAnimaux(tab, nb_animaux);
                 break;
 
             default:
@@ -179,6 +175,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
         printf("Aucun animal ne correspond a votre recherche.\n");
     }
     else {
+	afficheAnimaux(tab, nb_animaux);
         int continuer=0;
         printf("Voulez-vous approfondir votre recherche a partir d'un autre critere.\n");
         printf("Appuyez sur 1 si oui, 0 sinon:\n");
