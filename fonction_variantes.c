@@ -42,7 +42,7 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
   else if (temps_nettoyage>60){
     h=temps_nettoyage/60;
     m=temps_nettoyage%60;
-    printf("Il faudra prévoir %dh%02d de charge de tavail cette semaine pour nettoyer les abris de chaque animal.\n",h,m);
+    printf("Il faudra prévoir %dh%02d de charge de travail cette semaine pour nettoyer les abris de chaque animal.\n",h,m);
   }
 
   // que des minutes
