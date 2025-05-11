@@ -123,7 +123,7 @@ void afficheAnimaux(Animal animal[], int nb_animaux) { //affiche toutes les info
 
 
 void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherche l'animal et l'affiche par rapport au critère choisi
-
+	//paramètres
 	int ageType=0;
 	char nom[100];
 	int espece=0;
@@ -142,16 +142,16 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
         switch (choix) {
             case 1:
 
-                printf("Entrez le nom : ");
+                printf("Entrez le nom :");
                 scan("%98s",&nom); // Limite la saisie à 98 caractères pour éviter le débordement
                 corrigeNom(nom); // Corrige le format du nom si nécessaire
                 tab=rechercheparNom(nom,tab, &nb_animaux);
             break;
             case 2:
-                printf("Entrez le numero de l'espece desiree:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
+                printf("Entrez le numero corrspondant a l'espece que vous recherchez:\n0: CHIEN\n1: CHAT\n2: HAMSTER\n3: AUTRUCHE\n");
                 scan("%d", &espece);
                 while(espece<0 || espece>3){
-                	printf("Mauvaise saisie du numero d'espece.\nVeuillez ressaisir le numero de l'espece de l'animal:\n");
+                	printf("Mauvaise saisie du numero d'espece.\nVeuillez ressaisir un bon numero:\n");
                 	scan("%d", &espece);
                 }
                 tab=rechercheparEspece(espece,tab, &nb_animaux);
