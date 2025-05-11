@@ -62,15 +62,18 @@ int stockage_animaux(Animal* tab, int taille){
         }
         // Variable intermédiaire pour stocker l'espèce
         tab[i].espece=tmp;
-
+        fseek(fichier,-1,SEEK_CUR); // curseur replacé devant le premier caractère de la description
         // Alloue dynamiquement l'espace nécessaire pour stocker sa description
         test=fgetc(fichier);
         while(test !='\n' && test != EOF){ // compte le nb de lettres
             test=fgetc(fichier);// compte le nb de caractères dans la description
+            if(test=='\n' || test == EOF){
+                break;
+            }
             compteur++;
         }
         tab[i].description=NULL;
-        tab[i].description=malloc(compteur*sizeof(char));
+        tab[i].description=malloc((compteur+1)*sizeof(char));
         if(tab[i].description==NULL){
             printf("Allocation échouée\n");
             exit(1);
@@ -78,7 +81,8 @@ int stockage_animaux(Animal* tab, int taille){
         fseek(fichier,-(compteur+1),SEEK_CUR);// Curseur replacé devant le premier caractère de la description
 
         // sa description
-        fgets(tab[i].description,compteur,fichier);
+        fgets(tab[i].description,compteur+1,fichier);
+        printf("%s\n", tab[i].description);
         compteur=0;
 
         fseek(fichier,1,SEEK_CUR);
