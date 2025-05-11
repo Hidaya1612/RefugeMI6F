@@ -53,3 +53,13 @@ inventaire âge : affiche le nombre total d'animaux et les répartis par quartil
 rechercheNv.c : permet de rechercher un ou plusieurs animaux selon 3 différents critères (nom, espèce et type d'âge).
 
 
+LANCER LE PROGRAMME 
+
+1. Compiler le projet avec : make
+
+2. Lancer le programme avec l'executable : ./exec
+
+3. Suivre les instructions du menu de l'application !
+
+
+
