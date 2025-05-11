@@ -98,9 +98,10 @@ Animal* rechercheparAge(int ageType, Animal animaux[], int* nb_animaux) { // Rec
 }
 
 void afficheAnimaux(Animal animal[], int nb_animaux) { //affiche toutes les informations de l'animal
-
-    for (int i = 0; i < nb_animaux; i++) {
-        char especeNom[100];
+	 if (nb_animaux==0) {
+            printf("Il n'y a pas d'animaux dans le refuge.\n");
+        }
+	for (int i = 0; i < nb_animaux; i++) {
         switch (animal[i].espece) {
             case 0:
             printf("Nom: %s, ID: %d, Espece: Chien, Annee de naissance: %d, Poids: %.2f, Description: %s\n", animal[i].nom, animal[i].num_identification, animal[i].annee_de_naissance, animal[i].poids, animal[i].description);
