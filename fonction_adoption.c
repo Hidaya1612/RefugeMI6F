@@ -68,10 +68,10 @@ void adoption_animal(Animal* tab, int taille, int* pnb_animaux){ //supprime un a
                     fprintf(fichier,"%d %s %d %d %.3f",tab[i].num_identification,tab[i].nom,tab[i].espece,tab[i].annee_de_naissance,tab[i].poids);
                     //vérifie si la description existe
                     if (strlen(tab[i].description)!=0){
-                        fprintf(fichier," %s;\n",tab[i].description);
+                        fprintf(fichier," %s\n",tab[i].description);
                     }
                     else{
-                        fprintf(fichier,";\n");
+                        fprintf(fichier,"\n");
                     }
                 }
             }
