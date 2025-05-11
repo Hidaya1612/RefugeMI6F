@@ -2,7 +2,7 @@
 
 //temps hebdomadaire pour nettoyer les abris
 void nettoyage(Animal* tab, int taille,  int nb_animaux){
-  // Locals
+  // Parametres
   int temps_nettoyage=0;
   int h=-1;
   int m=-1;
@@ -12,8 +12,7 @@ void nettoyage(Animal* tab, int taille,  int nb_animaux){
     printf("Allocation echouee ou taille/nombre animaux incohérent(e)\n");
     afficherMenu(tab, TAILLE, nb_animaux);
   }
-
-  //Process
+  
   for (int i=0; i<nb_animaux; i++){ // parcours du tableau
     if (tab[i].num_identification!=0){
       switch(tab[i].espece){
@@ -87,7 +86,7 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
         printf("Il n'y a pas d'animaux dans le refuge\n");
         afficherMenu(tab, TAILLE, nb_animaux);
     }
-  
+    else{
     //Initialisation des paramètres
     int pMin=0;
     int pMax=0;
@@ -129,5 +128,6 @@ void inv_age_asc(Animal* tab, int nb_animaux) {
         printf("Plus de %d ans : %d animaux\n", pMin + 3 * moyenne, quartile4);
     }
     afficherMenu(tab, TAILLE, nb_animaux);
+    }
 }
 
