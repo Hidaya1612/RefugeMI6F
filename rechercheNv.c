@@ -157,7 +157,7 @@ void rechercherAnimaux(Animal tab[], int nb_animaux) { //procédure qui recherch
                 tab=rechercheparEspece(espece,tab, &nb_animaux);
                 break;
             case 3:
-                printf("Entrez le type d'age:\n1: Jeune <2 ans\n2: Age moyen (entre 2ans et 10 ans)\n3: Senior >10 ans:\n ");
+                printf("Entrez le type d'age:\n1: Jeune <2 ans\n2: Age moyen (entre 2ans et 10 ans)\n3: Senior >10 ans\n ");
                 scan("%d", &ageType);
                 while(ageType <1 || ageType>3){
                 	printf("Mauvaise saisie du choix.\n");
