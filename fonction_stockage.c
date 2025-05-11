@@ -23,7 +23,7 @@ int stockage_animaux(Animal* tab, int taille){
     int compteur=0;
     int tmp=-1;
     int i=0;
-    char test;;
+    char test;
 
     while (caractereActuel != EOF){
 
