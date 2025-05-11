@@ -84,7 +84,7 @@ void extremums(Animal* tab, int nb_animaux, int* pMin, int* pMax) {
 void inv_age_asc(Animal* tab, int nb_animaux) {
     //Vérification des paramètres
     if (tab == NULL || nb_animaux <= 0) {
-        printf("Erreur.\n");
+        printf("Il n'y a pas d'animaux dans le refuge\n");
         afficherMenu(tab, TAILLE, nb_animaux);
     }
   
