@@ -119,7 +119,7 @@ void ajouter_Animal(Animal* tab, int taille, int* pnb_animaux){ //ajoute un anim
 	}
 
 	//----Description----
-        printf("Voulez-vous ajouter une description sur l'animal:\n tapez 1 pour oui sinon tapez 2\n");
+        printf("Voulez-vous ajouter une description sur l'animal:\nTapez 1 pour oui, sinon tapez 2:\n");
 	scan("%d",&choix_descriptif);
 	while(choix_descriptif<1 || choix_descriptif>2){
 		printf("Erreur de la saisie du choix pour ajouter un descriptif à l'animal!! \n");
